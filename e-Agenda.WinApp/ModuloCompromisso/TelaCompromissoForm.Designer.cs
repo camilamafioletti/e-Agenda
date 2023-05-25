@@ -90,6 +90,7 @@
             // 
             txtId.Location = new Point(59, 16);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(31, 23);
             txtId.TabIndex = 5;
             txtId.Text = "0";
@@ -171,6 +172,7 @@
             // 
             // comboBoxContato
             // 
+            comboBoxContato.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxContato.Enabled = false;
             comboBoxContato.FormattingEnabled = true;
             comboBoxContato.Location = new Point(21, 166);

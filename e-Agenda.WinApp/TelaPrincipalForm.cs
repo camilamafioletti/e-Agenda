@@ -8,15 +8,34 @@ namespace e_Agenda.WinApp
     public partial class TelaPrincipalForm : Form
     {
         private ControladorBase controlador;
-        private RepositorioContato repositorioContato = new RepositorioContato();
+        private RepositorioContato repositorioContato = new RepositorioContato(new List<Contato>());
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
 
+        private static TelaPrincipalForm telaPrincipal;
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
 
+            telaPrincipal = this;
+
+        }
+
+        public void AtualizarRodape(string mensagem)
+        {
+            labelRodape.Text = mensagem;
+        }
+
+        public static TelaPrincipalForm Instancia
+        {
+            get
+            {
+                if (telaPrincipal == null)
+                    telaPrincipal = new TelaPrincipalForm();
+
+                return telaPrincipal;
+            }
         }
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
@@ -65,7 +84,6 @@ namespace e_Agenda.WinApp
             btnInserir.ToolTipText = controlador.ToolTipInserir;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
-            btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -76,6 +94,7 @@ namespace e_Agenda.WinApp
         private void btnEditar_Click(object sender, EventArgs e)
         {
             controlador.Editar();
+
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -86,6 +105,16 @@ namespace e_Agenda.WinApp
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             controlador.Filtrar();
+        }
+
+        private void btnSubtarefas_Click(object sender, EventArgs e)
+        {
+            controlador.ConcluirItens();
+        }
+
+        private void btnAdicionarSubtarefas_Click(object sender, EventArgs e)
+        {
+            controlador.Adicionar();
         }
     }
 }

@@ -18,8 +18,6 @@ namespace e_Agenda.WinApp.ModuloContato
 
         public override string ToolTipExcluir { get { return "Excluir Contato existente"; } }
 
-        public override string ToolTipFiltrar { get { return "Filtrar Contato existente"; } }
-
         public override void Inserir()
         {
             TelaContatoForm telaContato = new TelaContatoForm();
@@ -57,7 +55,7 @@ namespace e_Agenda.WinApp.ModuloContato
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioContato.Editar(telaContato.Contato);
+                repositorioContato.Editar(telaContato.Contato.id, telaContato.Contato);
 
                 CarregarContatos();
             }

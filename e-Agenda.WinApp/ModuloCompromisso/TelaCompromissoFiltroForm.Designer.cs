@@ -170,7 +170,7 @@
             MinimizeBox = false;
             Name = "TelaCompromissoFiltroForm";
             ShowIcon = false;
-            Text = "TelaCompromissoFiltroForm";
+            Text = "Filtro de Compromissos";
             GroupBoxFiltroFuturo.ResumeLayout(false);
             GroupBoxFiltroFuturo.PerformLayout();
             ResumeLayout(false);

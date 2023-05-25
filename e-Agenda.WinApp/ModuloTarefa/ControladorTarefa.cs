@@ -18,8 +18,6 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipExcluir { get { return "Excluir Tarefa existente"; } }
 
-        public override string ToolTipFiltrar { get { return "Filtrar Tarefa existente"; } }
-
         public override void Inserir()
         {
             TelaTarefaForm telaTarefa = new TelaTarefaForm();
@@ -103,7 +101,29 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         public override void Filtrar()
         {
-            throw new NotImplementedException();
+            TelaTarefaFiltroForm telaFiltro = new TelaTarefaFiltroForm();
+
+            if (telaFiltro.ShowDialog() == DialogResult.OK)
+            {
+                StatusTarefaEnum statusSelecionado = telaFiltro.StatusSelecionado;
+
+                CarregarTarefasComFiltro(statusSelecionado);
+            }
+        }
+
+        public void CarregarTarefasComFiltro(StatusTarefaEnum statusSelecionado)
+        {
+            List<Tarefa> tarefas;
+
+            switch (statusSelecionado)
+            {
+                case StatusTarefaEnum.Todos: tarefas = repositorioTarefa.SelecionarTodos(); break;
+                case StatusTarefaEnum.Pendente: tarefas = repositorioTarefa.SelecionarTarefasPendentes(); break;
+                case StatusTarefaEnum.Concluido: tarefas = repositorioTarefa.SelecionarTarefasCompletas(); break;
+                default: tarefas = repositorioTarefa.SelecionarTodos(); break;
+            }
+
+            listagemTarefa.AtualizarRegistros(tarefas);
         }
 
         private void CarregarTarefas()
@@ -112,5 +132,34 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
             listagemTarefa.AtualizarRegistros(tarefas);
         }
+
+        public void Subtarefas()
+        {
+
+            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione um tarefa primeiro!",
+                    "Edição de Contatos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaGerenciarItensForm subTarefa = new TelaGerenciarItensForm();
+            subTarefa.tarefa = tarefa;
+
+            DialogResult opcaoEscolhida = subTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioTarefa.Subtarefa(subTarefa.tarefa);
+
+                CarregarTarefas();
+            }
+        }
     }
+    
 }

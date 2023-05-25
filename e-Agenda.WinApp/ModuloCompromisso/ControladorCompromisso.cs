@@ -1,10 +1,5 @@
 ﻿using e_Agenda.WinApp.Compartilhado;
 using e_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
@@ -26,9 +21,6 @@ namespace e_Agenda.WinApp.ModuloCompromisso
         public override string ToolTipEditar { get { return "Editar Compromisso Existente"; } }
 
         public override string ToolTipExcluir { get { return "Excluir Compromisso Existente"; } }
-
-        public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
-
 
         public override void Inserir()
         {
@@ -67,7 +59,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioCompromisso.Editar(telaCompromisso.Compromisso);
+                repositorioCompromisso.Editar(compromisso.id, compromisso);
 
                 CarregarCompromissos();
             }

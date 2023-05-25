@@ -1,13 +1,4 @@
 ﻿using e_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
@@ -17,25 +8,14 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
         private RepositorioContato repositorioContato;
 
+
         public TelaCompromissoForm(RepositorioContato repositorioContato)
         {
             InitializeComponent();
             this.repositorioContato = repositorioContato;
 
-            configurarDateTime(dtpInicio);
-
-            configurarDateTime(dtpTermino);
         }
-
-        public TelaCompromissoForm()
-        {
-            InitializeComponent();
-
-            configurarDateTime(dtpInicio);
-
-            configurarDateTime(dtpTermino);
-        }
-
+         
         public Compromisso Compromisso
         {
             set
@@ -97,11 +77,5 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             comboBoxContato.Items.AddRange(repositorioContato.SelecionarTodos().ToArray());
         }
 
-        private void configurarDateTime(DateTimePicker data)
-        {
-            data.Format = DateTimePickerFormat.Custom;
-            data.CustomFormat = "HH:mm";
-            data.ShowUpDown = true;
-        }
     }
 }
