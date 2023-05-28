@@ -31,8 +31,8 @@
             label1 = new Label();
             lblCategoria = new Label();
             groupBox1 = new GroupBox();
+            listDespesas = new ListBox();
             btnCancelar = new Button();
-            listBox1 = new ListBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,13 +57,22 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(listBox1);
+            groupBox1.Controls.Add(listDespesas);
             groupBox1.Location = new Point(12, 62);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(389, 214);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Despesas";
+            // 
+            // listDespesas
+            // 
+            listDespesas.FormattingEnabled = true;
+            listDespesas.ItemHeight = 15;
+            listDespesas.Location = new Point(6, 22);
+            listDespesas.Name = "listDespesas";
+            listDespesas.Size = new Size(377, 184);
+            listDespesas.TabIndex = 0;
             // 
             // btnCancelar
             // 
@@ -75,15 +84,6 @@
             btnCancelar.TabIndex = 18;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(6, 22);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(377, 184);
-            listBox1.TabIndex = 0;
             // 
             // TelaVisualizarCategoriaForm
             // 
@@ -106,7 +106,7 @@
         private Label label1;
         private Label lblCategoria;
         private GroupBox groupBox1;
-        private ListBox listBox1;
+        private ListBox listDespesas;
         private Button btnCancelar;
     }
 }

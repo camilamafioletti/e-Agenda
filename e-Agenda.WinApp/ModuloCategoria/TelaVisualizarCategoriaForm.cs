@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {
     public partial class TelaVisualizarCategoriaForm : Form
     {
+        private Categoria categoria;
+
         public TelaVisualizarCategoriaForm()
         {
             InitializeComponent();
+
+            this.ConfigurarDialog();
         }
     }
 }

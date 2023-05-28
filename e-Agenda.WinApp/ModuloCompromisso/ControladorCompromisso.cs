@@ -65,13 +65,6 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             }
         }
 
-        private Compromisso ObterCompromissoSelecionado()
-        {
-            int id = tabelaCompromissos.ObterIdSelecionado();
-
-            return repositorioCompromisso.SelecionarPorId(id);
-        }
-
         public override void Excluir()
         {
             Compromisso compromisso = ObterCompromissoSelecionado();
@@ -97,6 +90,13 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             }
         }
 
+        private Compromisso ObterCompromissoSelecionado()
+        {
+            int id = tabelaCompromissos.ObterIdSelecionado();
+
+            return repositorioCompromisso.SelecionarPorId(id);
+        }
+
         public override void Filtrar()
         {
             TelaCompromissoFiltroForm telaFiltro = new TelaCompromissoFiltroForm();
@@ -111,7 +111,6 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                 CarregarCompromissosComFiltro(statusSelecionado, dataInicial, dataFinal);
             }
         }
-
 
         public override UserControl ObterListagem()
         {

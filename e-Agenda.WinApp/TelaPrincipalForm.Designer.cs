@@ -48,12 +48,12 @@
             btnFiltrar = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
             btnAdicionarSubtarefas = new ToolStripButton();
-            btnVisualizar = new ToolStripButton();
+            btnChecharTarefas = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
+            toolStripSeparator4 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
-            toolStripButton1 = new ToolStripButton();
-            toolStripSeparator4 = new ToolStripSeparator();
+            btnVisualizar = new ToolStripButton();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -116,6 +116,7 @@
             categoriasMenuItem.Name = "categoriasMenuItem";
             categoriasMenuItem.Size = new Size(130, 22);
             categoriasMenuItem.Text = "Categorias";
+            categoriasMenuItem.Click += categoriasMenuItem_Click;
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -141,7 +142,7 @@
             // toolStrip1
             // 
             toolStrip1.BackColor = Color.LavenderBlush;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, btnAdicionarSubtarefas, toolStripButton1, toolStripSeparator1, btnVisualizar, toolStripSeparator4, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, btnAdicionarSubtarefas, btnChecharTarefas, toolStripSeparator1, btnVisualizar, toolStripSeparator4, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(734, 45);
@@ -219,22 +220,26 @@
             btnAdicionarSubtarefas.Text = "Adicionar Subtarefas";
             btnAdicionarSubtarefas.Click += btnAdicionarSubtarefas_Click;
             // 
-            // btnVisualizar
+            // btnChecharTarefas
             // 
-            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnVisualizar.Image = (Image)resources.GetObject("btnVisualizar.Image");
-            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
-            btnVisualizar.ImageTransparentColor = Color.Magenta;
-            btnVisualizar.Name = "btnVisualizar";
-            btnVisualizar.Padding = new Padding(7);
-            btnVisualizar.Size = new Size(42, 42);
-            btnVisualizar.Text = "Gerenciar Subtarefas";
-            btnVisualizar.Click += btnSubtarefas_Click;
+            btnChecharTarefas.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnChecharTarefas.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            btnChecharTarefas.ImageScaling = ToolStripItemImageScaling.None;
+            btnChecharTarefas.ImageTransparentColor = Color.Magenta;
+            btnChecharTarefas.Name = "btnChecharTarefas";
+            btnChecharTarefas.Padding = new Padding(7);
+            btnChecharTarefas.Size = new Size(42, 42);
+            btnChecharTarefas.Text = "Gerenciar Subtarefas";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 45);
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(6, 45);
             // 
             // labelTipoCadastro
             // 
@@ -251,21 +256,16 @@
             panelRegistros.Size = new Size(734, 272);
             panelRegistros.TabIndex = 3;
             // 
-            // toolStripButton1
+            // btnVisualizar
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
-            toolStripButton1.ImageScaling = ToolStripItemImageScaling.None;
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Padding = new Padding(7);
-            toolStripButton1.Size = new Size(42, 42);
-            toolStripButton1.Text = "Gerenciar Subtarefas";
-            // 
-            // toolStripSeparator4
-            // 
-            toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(6, 45);
+            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Image = (Image)resources.GetObject("btnVisualizar.Image");
+            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btnVisualizar.ImageTransparentColor = Color.Magenta;
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Size = new Size(28, 42);
+            btnVisualizar.Text = "toolStripButton2";
+            btnVisualizar.Click += btnVisualizar_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -312,11 +312,11 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoCadastro;
         private ToolStripButton btnFiltrar;
-        private ToolStripButton btnVisualizar;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton btnAdicionarSubtarefas;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton btnChecharTarefas;
         private ToolStripSeparator toolStripSeparator4;
+        private ToolStripButton btnVisualizar;
     }
 }

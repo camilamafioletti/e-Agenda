@@ -31,7 +31,7 @@
             label1 = new Label();
             label2 = new Label();
             txtId = new Label();
-            textBox1 = new TextBox();
+            txtTitulo = new TextBox();
             btnCancelar = new Button();
             btnGravar = new Button();
             SuspendLayout();
@@ -63,12 +63,12 @@
             txtId.TabIndex = 2;
             txtId.Text = "0";
             // 
-            // textBox1
+            // txtTitulo
             // 
-            textBox1.Location = new Point(92, 62);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(300, 23);
-            textBox1.TabIndex = 3;
+            txtTitulo.Location = new Point(92, 62);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(300, 23);
+            txtTitulo.TabIndex = 3;
             // 
             // btnCancelar
             // 
@@ -99,7 +99,7 @@
             ClientSize = new Size(404, 169);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
-            Controls.Add(textBox1);
+            Controls.Add(txtTitulo);
             Controls.Add(txtId);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -114,7 +114,7 @@
         private Label label1;
         private Label label2;
         private Label txtId;
-        private TextBox textBox1;
+        private TextBox txtTitulo;
         private Button btnCancelar;
         private Button btnGravar;
     }

@@ -1,9 +1,12 @@
-﻿using e_Agenda.WinApp.ModuloDespesa;
+﻿using e_Agenda.WinApp.ModuloCategoria;
+using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloDespesas
 {
     public partial class TelaDespesaForm : Form
     {
+        private Despesa despesa;
+
         public TelaDespesaForm()
         {
             InitializeComponent();
@@ -11,6 +14,7 @@ namespace e_Agenda.WinApp.ModuloDespesas
             this.ConfigurarDialog();
 
             CarregarFormaPagamento();
+
         }
 
         private void CarregarFormaPagamento()

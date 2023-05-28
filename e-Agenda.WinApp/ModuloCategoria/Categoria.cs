@@ -1,13 +1,17 @@
-﻿namespace e_Agenda.WinApp.ModuloCategoria
+﻿using e_Agenda.WinApp.ModuloDespesa;
+
+namespace e_Agenda.WinApp.ModuloCategoria
 {
     public class Categoria : EntidadeBase<Categoria>
     {
 
         public string titulo;
+        public List<Despesa> despesas;
 
         public Categoria(string titulo)
         {
             this.titulo = titulo;
+            this.despesas = new List<Despesa>();
         }
 
         public override void AtualizarInformacoes(Categoria registroAtualizado)
@@ -17,7 +21,12 @@
 
         public override string[] Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+            if (titulo.Trim() == "")
+            {
+                erros.Add("Título não pode ser nulo");
+            }
+            return erros.ToArray();
         }
     }
 }

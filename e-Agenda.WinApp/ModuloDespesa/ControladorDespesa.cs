@@ -1,15 +1,18 @@
-﻿using e_Agenda.WinApp.ModuloDespesas;
+﻿using e_Agenda.WinApp.ModuloCategoria;
+using e_Agenda.WinApp.ModuloDespesas;
 
 namespace e_Agenda.WinApp.ModuloDespesa
 {
     public class ControladorDespesa : ControladorBase
     {
         private RepositorioDespesa repositorioDespesa;
+        private RepositorioCategoria repositorioCategoria;
         private TabelaDespesaControl tabelaDespesa;
 
-        public ControladorDespesa(RepositorioDespesa repositorioDespesa)
+        public ControladorDespesa(RepositorioDespesa repositorioDespesa, RepositorioCategoria repositorioCategoria)
         {
             this.repositorioDespesa = repositorioDespesa;
+            this.repositorioCategoria = repositorioCategoria;
         }
 
         public override string ToolTipInserir => "Inserir nova despesa";
@@ -20,9 +23,10 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
         public override void Inserir()
         {
+
             TelaDespesaForm telaDespesa = new TelaDespesaForm();
 
-            DialogResult opcaoEscolhida = telaDespesa.ShowDialog(); 
+            DialogResult opcaoEscolhida = telaDespesa.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
@@ -37,13 +41,13 @@ namespace e_Agenda.WinApp.ModuloDespesa
 
             Despesa despesaSelecionada = ObterDespesaSelecionada();
 
-            if(despesaSelecionada == null)
+            if (despesaSelecionada == null)
             {
                 MessageBox.Show($"Selecione uma despesa primeiro", "Edicao de Despesas",
-                    MessageBoxButtons.OK, 
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
-                return; 
+                return;
             }
 
             TelaDespesaForm telaDespesa = new TelaDespesaForm();

@@ -14,6 +14,8 @@
 
         public virtual string ToolTipConcluirItens { get; }
 
+        public virtual string ToolTipVisualizarCategorias { get; }
+
         public abstract void Inserir();
 
         public abstract void Editar();
@@ -29,6 +31,10 @@
         }
 
         public virtual void ConcluirItens()
+        {
+        }
+
+        public virtual void VisualizarCategorias()
         {
         }
 

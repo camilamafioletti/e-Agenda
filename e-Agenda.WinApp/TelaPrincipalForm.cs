@@ -1,4 +1,5 @@
 using e_Agenda.WinApp.Compartilhado;
+using e_Agenda.WinApp.ModuloCategoria;
 using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloDespesa;
@@ -13,6 +14,7 @@ namespace e_Agenda.WinApp
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa(new List<Tarefa>());
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
         private RepositorioDespesa repositorioDespesa = new RepositorioDespesa(new List<Despesa>());
+        private RepositorioCategoria repositorioCategoria = new RepositorioCategoria(new List<Categoria>());
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -63,7 +65,14 @@ namespace e_Agenda.WinApp
 
         private void despesasMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDespesa(repositorioDespesa);
+            controlador = new ControladorDespesa(repositorioDespesa, repositorioCategoria);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void categoriasMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorCategoria(repositorioCategoria);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -124,6 +133,11 @@ namespace e_Agenda.WinApp
         private void btnAdicionarSubtarefas_Click(object sender, EventArgs e)
         {
             controlador.Adicionar();
+        }
+
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            controlador.VisualizarCategorias();
         }
     }
 }

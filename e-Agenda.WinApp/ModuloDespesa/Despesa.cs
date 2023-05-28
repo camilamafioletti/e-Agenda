@@ -9,7 +9,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
         public DateTime data;
         public FormaPagamentoEnum tipoPagamento;
 
-        List<Categoria> categorias;
+        public List<Categoria> categorias;
 
         public Despesa(string descricao, decimal valor, DateTime data, FormaPagamentoEnum tipoPagamento)
         {

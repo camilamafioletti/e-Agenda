@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloDespesa
+﻿using Microsoft.Win32;
+
+namespace e_Agenda.WinApp.ModuloDespesa
 {
     public class RepositorioDespesa : RepositorioBase<Despesa>
     {
@@ -7,5 +9,6 @@
         {
             this.listaRegistros = despesas;
         }
+
     }
 }
