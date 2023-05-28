@@ -28,135 +28,125 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtTitulo = new TextBox();
-            label1 = new Label();
-            lblPrioridade = new Label();
-            txtIdTarefa = new TextBox();
-            lblIdTarefas = new Label();
-            btnGravar = new Button();
             btnCancelar = new Button();
-            txtPrioridade = new ComboBox();
+            btnGravar = new Button();
+            txtTitulo = new TextBox();
             label2 = new Label();
-            dateTimeCriacao = new DateTimePicker();
+            txtId = new TextBox();
+            label1 = new Label();
+            cmbPrioridade = new ComboBox();
+            label3 = new Label();
+            label4 = new Label();
+            txtDataCriacao = new DateTimePicker();
             SuspendLayout();
-            // 
-            // txtTitulo
-            // 
-            txtTitulo.AccessibleName = "txtTitulo";
-            txtTitulo.Location = new Point(81, 59);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(143, 23);
-            txtTitulo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AccessibleName = "lblTitulo";
-            label1.AutoSize = true;
-            label1.Location = new Point(38, 62);
-            label1.Name = "label1";
-            label1.Size = new Size(37, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Titulo";
-            // 
-            // lblPrioridade
-            // 
-            lblPrioridade.AccessibleName = "lblPrioridade";
-            lblPrioridade.AutoSize = true;
-            lblPrioridade.Location = new Point(14, 91);
-            lblPrioridade.Name = "lblPrioridade";
-            lblPrioridade.Size = new Size(61, 15);
-            lblPrioridade.TabIndex = 3;
-            lblPrioridade.Text = "Prioridade";
-            // 
-            // txtIdTarefa
-            // 
-            txtIdTarefa.AccessibleName = "txtIdTarefas";
-            txtIdTarefa.Location = new Point(81, 30);
-            txtIdTarefa.Name = "txtIdTarefa";
-            txtIdTarefa.Size = new Size(30, 23);
-            txtIdTarefa.TabIndex = 4;
-            txtIdTarefa.Text = "0";
-            // 
-            // lblIdTarefas
-            // 
-            lblIdTarefas.AccessibleDescription = "lblIdTarefas";
-            lblIdTarefas.AutoSize = true;
-            lblIdTarefas.Location = new Point(58, 33);
-            lblIdTarefas.Name = "lblIdTarefas";
-            lblIdTarefas.Size = new Size(17, 15);
-            lblIdTarefas.TabIndex = 5;
-            lblIdTarefas.Text = "Id";
-            // 
-            // btnGravar
-            // 
-            btnGravar.AccessibleName = "btnGaravarTarefa";
-            btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(99, 160);
-            btnGravar.Name = "btnGravar";
-            btnGravar.Size = new Size(75, 41);
-            btnGravar.TabIndex = 6;
-            btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
-            btnGravar.Click += btnGravar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.AccessibleName = "btnCancelarTarefa";
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(180, 160);
+            btnCancelar.Location = new Point(167, 163);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 41);
-            btnCancelar.TabIndex = 7;
+            btnCancelar.Size = new Size(74, 41);
+            btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // txtPrioridade
+            // btnGravar
             // 
-            txtPrioridade.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtPrioridade.FormattingEnabled = true;
-            txtPrioridade.Location = new Point(81, 88);
-            txtPrioridade.Name = "txtPrioridade";
-            txtPrioridade.Size = new Size(143, 23);
-            txtPrioridade.TabIndex = 20;
+            btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(91, 163);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(70, 41);
+            btnGravar.TabIndex = 2;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = true;
+            // 
+            // txtTitulo
+            // 
+            txtTitulo.Location = new Point(91, 58);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(150, 23);
+            txtTitulo.TabIndex = 9;
             // 
             // label2
             // 
-            label2.AccessibleName = "lblPrioridade";
             label2.AutoSize = true;
-            label2.Location = new Point(38, 124);
+            label2.Location = new Point(45, 62);
             label2.Name = "label2";
-            label2.Size = new Size(31, 15);
-            label2.TabIndex = 21;
-            label2.Text = "Data";
+            label2.Size = new Size(40, 15);
+            label2.TabIndex = 8;
+            label2.Text = "Título:";
             // 
-            // dateTimeCriacao
+            // txtId
             // 
-            dateTimeCriacao.Format = DateTimePickerFormat.Short;
-            dateTimeCriacao.Location = new Point(81, 118);
-            dateTimeCriacao.Name = "dateTimeCriacao";
-            dateTimeCriacao.Size = new Size(143, 23);
-            dateTimeCriacao.TabIndex = 22;
+            txtId.Location = new Point(91, 29);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(26, 23);
+            txtId.TabIndex = 7;
+            txtId.Text = "0";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(65, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(20, 15);
+            label1.TabIndex = 6;
+            label1.Text = "Id:";
+            // 
+            // cmbPrioridade
+            // 
+            cmbPrioridade.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPrioridade.FormattingEnabled = true;
+            cmbPrioridade.Location = new Point(91, 87);
+            cmbPrioridade.Name = "cmbPrioridade";
+            cmbPrioridade.Size = new Size(150, 23);
+            cmbPrioridade.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(21, 90);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Prioridade:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(51, 122);
+            label4.Name = "label4";
+            label4.Size = new Size(34, 15);
+            label4.TabIndex = 12;
+            label4.Text = "Data:";
+            // 
+            // txtDataCriacao
+            // 
+            txtDataCriacao.Format = DateTimePickerFormat.Short;
+            txtDataCriacao.Location = new Point(92, 116);
+            txtDataCriacao.Name = "txtDataCriacao";
+            txtDataCriacao.Size = new Size(150, 23);
+            txtDataCriacao.TabIndex = 13;
             // 
             // TelaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(267, 213);
-            Controls.Add(dateTimeCriacao);
+            ClientSize = new Size(254, 216);
+            Controls.Add(txtDataCriacao);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(cmbPrioridade);
+            Controls.Add(txtTitulo);
             Controls.Add(label2);
-            Controls.Add(txtPrioridade);
+            Controls.Add(txtId);
+            Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
-            Controls.Add(lblIdTarefas);
-            Controls.Add(txtIdTarefa);
-            Controls.Add(lblPrioridade);
-            Controls.Add(label1);
-            Controls.Add(txtTitulo);
             Name = "TelaTarefaForm";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Tarefas";
             ResumeLayout(false);
             PerformLayout();
@@ -164,15 +154,15 @@
 
         #endregion
 
-        private TextBox txtTitulo;
-        private Label label1;
-        private Label lblPrioridade;
-        private TextBox txtIdTarefa;
-        private Label lblIdTarefas;
-        private Button btnGravar;
         private Button btnCancelar;
-        private ComboBox txtPrioridade;
+        private Button btnGravar;
+        private TextBox txtTitulo;
         private Label label2;
-        private DateTimePicker dateTimeCriacao;
+        private TextBox txtId;
+        private Label label1;
+        private ComboBox cmbPrioridade;
+        private Label label3;
+        private Label label4;
+        private DateTimePicker txtDataCriacao;
     }
 }

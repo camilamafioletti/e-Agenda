@@ -4,6 +4,11 @@
     {
         List<Compromisso> compromissos = new List<Compromisso>();
 
+        public RepositorioCompromisso()
+        {
+            this.listaRegistros = compromissos;
+        }
+
         public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicial, DateTime dataFinal)
         {
             List<Compromisso> compromissosFuturos = new List<Compromisso>();

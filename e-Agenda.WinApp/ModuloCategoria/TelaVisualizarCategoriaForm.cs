@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace e_Agenda.WinApp.ModuloTarefa
+namespace e_Agenda.WinApp.ModuloCategoria
 {
-    public partial class TelaCadastroItensForm : Form
+    public partial class TelaVisualizarCategoriaForm : Form
     {
-        public TelaCadastroItensForm()
+        public TelaVisualizarCategoriaForm()
         {
             InitializeComponent();
         }

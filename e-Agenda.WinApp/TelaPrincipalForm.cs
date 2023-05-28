@@ -1,6 +1,7 @@
 using e_Agenda.WinApp.Compartilhado;
 using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloContato;
+using e_Agenda.WinApp.ModuloDespesa;
 using e_Agenda.WinApp.ModuloTarefa;
 
 namespace e_Agenda.WinApp
@@ -9,8 +10,9 @@ namespace e_Agenda.WinApp
     {
         private ControladorBase controlador;
         private RepositorioContato repositorioContato = new RepositorioContato(new List<Contato>());
-        private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
+        private RepositorioTarefa repositorioTarefa = new RepositorioTarefa(new List<Tarefa>());
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
+        private RepositorioDespesa repositorioDespesa = new RepositorioDespesa(new List<Despesa>());
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -55,6 +57,13 @@ namespace e_Agenda.WinApp
         private void compromissosMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorCompromisso(repositorioCompromisso, repositorioContato);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void despesasMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorDespesa(repositorioDespesa);
 
             ConfigurarTelaPrincipal(controlador);
         }

@@ -7,7 +7,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
     {
         private RepositorioCompromisso repositorioCompromisso;
         private RepositorioContato repositorioContato;
-        private ListagemCompromissoControl listagemCompromisso;
+        private TabelaCompromissoControl tabelaCompromissos;
 
         public ControladorCompromisso(RepositorioCompromisso repositorioCompromisso, RepositorioContato repositorioContato)
         {
@@ -40,7 +40,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
         public override void Editar()
         {
-            Compromisso compromisso = listagemCompromisso.ObterCompromissoSelecionado();
+            Compromisso compromisso = ObterCompromissoSelecionado();
 
             if (compromisso == null)
             {
@@ -65,9 +65,16 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             }
         }
 
+        private Compromisso ObterCompromissoSelecionado()
+        {
+            int id = tabelaCompromissos.ObterIdSelecionado();
+
+            return repositorioCompromisso.SelecionarPorId(id);
+        }
+
         public override void Excluir()
         {
-            Compromisso compromisso = listagemCompromisso.ObterCompromissoSelecionado();
+            Compromisso compromisso = ObterCompromissoSelecionado();
 
             if (compromisso == null)
             {
@@ -108,12 +115,12 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
         public override UserControl ObterListagem()
         {
-            if (listagemCompromisso == null)
-                listagemCompromisso = new ListagemCompromissoControl();
+            if (tabelaCompromissos == null)
+                tabelaCompromissos = new TabelaCompromissoControl();
 
             CarregarCompromissos();
 
-            return listagemCompromisso;
+            return tabelaCompromissos;
         }
 
         public override string ObterTipoCadastro()
@@ -125,7 +132,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
         {
             List<Compromisso> compromissos = repositorioCompromisso.SelecionarTodos();
 
-            listagemCompromisso.AtualizarRegistros(compromissos);
+            tabelaCompromissos.AtualizarRegistros(compromissos);
         }
 
         private void CarregarCompromissosComFiltro(StatusCompromissoEnum statusSelecionado, DateTime dataInicial, DateTime dataFinal)
@@ -150,7 +157,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                     tipoCompromisso = " "; break;
 
             }
-            listagemCompromisso.AtualizarRegistros(compromissos);
+            tabelaCompromissos.AtualizarRegistros(compromissos);
         }
     }
 }

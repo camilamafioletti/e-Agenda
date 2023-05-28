@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace e_Agenda.WinApp.ModuloTarefa
+﻿namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaTarefaFiltroForm : Form
     {
@@ -17,15 +7,14 @@ namespace e_Agenda.WinApp.ModuloTarefa
             InitializeComponent();
         }
 
-        public StatusTarefaEnum StatusSelecionado
+        public StatusTarefaEnum ObterFiltroTarefa()
         {
-            get
             {
                 if (rdbTarefasPendentes.Checked)
-                    return StatusTarefaEnum.Pendente;
+                    return StatusTarefaEnum.Pendentes;
 
                 else if (rdbTarefasFinalizadas.Checked)
-                    return StatusTarefaEnum.Concluido;
+                    return StatusTarefaEnum.Concluidas;
 
                 else
                     return StatusTarefaEnum.Todos;

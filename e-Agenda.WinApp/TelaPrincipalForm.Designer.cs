@@ -48,10 +48,12 @@
             btnFiltrar = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
             btnAdicionarSubtarefas = new ToolStripButton();
-            btnSubtarefas = new ToolStripButton();
+            btnVisualizar = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
+            toolStripButton1 = new ToolStripButton();
+            toolStripSeparator4 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -107,6 +109,7 @@
             despesasMenuItem.Name = "despesasMenuItem";
             despesasMenuItem.Size = new Size(130, 22);
             despesasMenuItem.Text = "Despesas";
+            despesasMenuItem.Click += despesasMenuItem_Click;
             // 
             // categoriasMenuItem
             // 
@@ -138,7 +141,7 @@
             // toolStrip1
             // 
             toolStrip1.BackColor = Color.LavenderBlush;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, btnAdicionarSubtarefas, btnSubtarefas, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, btnAdicionarSubtarefas, toolStripButton1, toolStripSeparator1, btnVisualizar, toolStripSeparator4, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(734, 45);
@@ -216,17 +219,17 @@
             btnAdicionarSubtarefas.Text = "Adicionar Subtarefas";
             btnAdicionarSubtarefas.Click += btnAdicionarSubtarefas_Click;
             // 
-            // btnSubtarefas
+            // btnVisualizar
             // 
-            btnSubtarefas.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnSubtarefas.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
-            btnSubtarefas.ImageScaling = ToolStripItemImageScaling.None;
-            btnSubtarefas.ImageTransparentColor = Color.Magenta;
-            btnSubtarefas.Name = "btnSubtarefas";
-            btnSubtarefas.Padding = new Padding(7);
-            btnSubtarefas.Size = new Size(42, 42);
-            btnSubtarefas.Text = "Gerenciar Subtarefas";
-            btnSubtarefas.Click += btnSubtarefas_Click;
+            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Image = (Image)resources.GetObject("btnVisualizar.Image");
+            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btnVisualizar.ImageTransparentColor = Color.Magenta;
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Padding = new Padding(7);
+            btnVisualizar.Size = new Size(42, 42);
+            btnVisualizar.Text = "Gerenciar Subtarefas";
+            btnVisualizar.Click += btnSubtarefas_Click;
             // 
             // toolStripSeparator1
             // 
@@ -247,6 +250,22 @@
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(734, 272);
             panelRegistros.TabIndex = 3;
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            toolStripButton1.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Padding = new Padding(7);
+            toolStripButton1.Size = new Size(42, 42);
+            toolStripButton1.Text = "Gerenciar Subtarefas";
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(6, 45);
             // 
             // TelaPrincipalForm
             // 
@@ -293,9 +312,11 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoCadastro;
         private ToolStripButton btnFiltrar;
-        private ToolStripButton btnSubtarefas;
+        private ToolStripButton btnVisualizar;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton btnAdicionarSubtarefas;
+        private ToolStripButton toolStripButton1;
+        private ToolStripSeparator toolStripSeparator4;
     }
 }

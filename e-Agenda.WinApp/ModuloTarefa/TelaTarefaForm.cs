@@ -1,73 +1,55 @@
-﻿using System.Collections;
+﻿using e_Agenda.WinApp.Compartilhado;
 
 namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaTarefaForm : Form
     {
-        private List<Tarefa> ListaTarefasConcluidas = new List<Tarefa>();
-
-        private Tarefa tarefa;
-
-        public TelaTarefaForm()
+        public TelaTarefaForm(bool edicaoDeTarefa)
         {
             InitializeComponent();
-            RegularBoxPrioridade();
-        }
 
-        public Tarefa Tarefa
-        {
-            set
+            this.ConfigurarDialog();
+
+            CarregarPrioridades();
+
+            if (edicaoDeTarefa)
             {
-                txtIdTarefa.Text = value.id.ToString();
-                txtTitulo.Text = value.titulo;
-                txtPrioridade.Text = value.prioridade;
-                dateTimeCriacao.Value = value.dataCriacao;
-                //chListSubtarefa.Items.AddRange(value.subTarefas.ToArray());
-            }
-            get
-            {
-                return tarefa;
+                txtDataCriacao.Enabled = false;
             }
         }
 
-        private void btnGravar_Click(object sender, EventArgs e)
+        private void CarregarPrioridades()
         {
+            PrioridadeTarefaEnum[] prioridades = Enum.GetValues<PrioridadeTarefaEnum>();
+
+            foreach (PrioridadeTarefaEnum prioridade in prioridades)
+            {
+                cmbPrioridade.Items.Add(prioridade);
+            }
+        }
+
+        public Tarefa ObterTarefa()
+        {
+            int id = Convert.ToInt32(txtId.Text);
+
             string titulo = txtTitulo.Text;
 
-            string prioridade = txtPrioridade.Text;
+            PrioridadeTarefaEnum prioridade = (PrioridadeTarefaEnum)cmbPrioridade.SelectedItem;
 
-            DateTime dataCriacao = dateTimeCriacao.Value;
+            DateTime dataCriacao = txtDataCriacao.Value;
 
-            tarefa = new Tarefa(titulo, prioridade, dataCriacao);
-
-            if (txtIdTarefa.Text != "0")
-                tarefa.id = Convert.ToInt32(txtIdTarefa.Text);
+            return new Tarefa(id, titulo, prioridade, dataCriacao);
         }
 
-        private void RegularBoxPrioridade()
+        public void ConfigurarTela(Tarefa tarefaSelecionada)
         {
-            txtPrioridade.Items.Add(PrioridadeTarefaEnum.Alta);
-            txtPrioridade.Items.Add(PrioridadeTarefaEnum.Média);
-            txtPrioridade.Items.Add(PrioridadeTarefaEnum.Baixa);
+            txtId.Text = tarefaSelecionada.id.ToString();
+
+            txtTitulo.Text = tarefaSelecionada.titulo;
+
+            cmbPrioridade.SelectedItem = tarefaSelecionada.prioridade;
+
+            txtDataCriacao.Value = tarefaSelecionada.dataCriacao;
         }
-
-        //private void btnAdicionarSub_Click(object sender, EventArgs e)
-        //{
-        //    chListSubtarefa.Items.Add(txtSubtarefa.Text);
-        //    txtSubtarefa.Text = "";
-        //}
-
-        //private void btnRemoverSub_Click(object sender, EventArgs e)
-        //{
-        //    chListSubtarefa.Items.Remove(chListSubtarefa.SelectedItem);
-        //}
-
-        //public double CalcularPercentual()
-        //{
-        //    double percentual;
-
-        //    return percentual = (double)chListSubtarefa.CheckedItems.Count / chListSubtarefa.Items.Count * 100;
-        //}
     }
 }
-

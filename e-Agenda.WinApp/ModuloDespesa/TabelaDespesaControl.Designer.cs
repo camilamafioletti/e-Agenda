@@ -1,6 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloContato
+﻿namespace e_Agenda.WinApp.ModuloDespesa
 {
-    partial class ListagemContatoControl
+    partial class TabelaDespesaControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listContato = new ListBox();
+            gridDespesas = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gridDespesas).BeginInit();
             SuspendLayout();
             // 
-            // listContato
+            // gridDespesas
             // 
-            listContato.Dock = DockStyle.Fill;
-            listContato.FormattingEnabled = true;
-            listContato.ItemHeight = 15;
-            listContato.Location = new Point(0, 0);
-            listContato.Name = "listContato";
-            listContato.Size = new Size(714, 427);
-            listContato.TabIndex = 0;
+            gridDespesas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridDespesas.Dock = DockStyle.Fill;
+            gridDespesas.Location = new Point(0, 0);
+            gridDespesas.Name = "gridDespesas";
+            gridDespesas.RowTemplate.Height = 25;
+            gridDespesas.Size = new Size(416, 402);
+            gridDespesas.TabIndex = 0;
             // 
-            // ListagemContatoControl
+            // TabelaDespesaControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listContato);
-            Name = "ListagemContatoControl";
-            Size = new Size(714, 427);
+            Controls.Add(gridDespesas);
+            Name = "TabelaDespesaControl";
+            Size = new Size(416, 402);
+            ((System.ComponentModel.ISupportInitialize)gridDespesas).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listContato;
+        private DataGridView gridDespesas;
     }
 }

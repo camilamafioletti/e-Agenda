@@ -1,6 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿namespace e_Agenda.WinApp.ModuloContato
 {
-    partial class ListagemTarefaControl
+    partial class TabelaContatoControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listTarefas = new ListBox();
+            gridContato = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gridContato).BeginInit();
             SuspendLayout();
             // 
-            // listTarefas
+            // gridContato
             // 
-            listTarefas.Dock = DockStyle.Fill;
-            listTarefas.FormattingEnabled = true;
-            listTarefas.ItemHeight = 15;
-            listTarefas.Location = new Point(0, 0);
-            listTarefas.Name = "listTarefas";
-            listTarefas.Size = new Size(522, 383);
-            listTarefas.TabIndex = 0;
+            gridContato.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridContato.Dock = DockStyle.Fill;
+            gridContato.Location = new Point(0, 0);
+            gridContato.Name = "gridContato";
+            gridContato.RowTemplate.Height = 25;
+            gridContato.Size = new Size(461, 413);
+            gridContato.TabIndex = 0;
             // 
-            // ListagemTarefaControl
+            // TabelaContatoControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listTarefas);
-            Name = "ListagemTarefaControl";
-            Size = new Size(522, 383);
+            Controls.Add(gridContato);
+            Name = "TabelaContatoControl";
+            Size = new Size(461, 413);
+            ((System.ComponentModel.ISupportInitialize)gridContato).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listTarefas;
+        private DataGridView gridContato;
     }
 }

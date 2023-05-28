@@ -22,19 +22,6 @@
             registroSelecionado.AtualizarInformacoes(registroAtualizado);
         }
 
-        public virtual void Editar(TEntidade registroSelecionado, TEntidade registroAtualizado)
-        {
-            registroSelecionado.AtualizarInformacoes(registroAtualizado);
-        }
-
-        public virtual void Excluir(int id)
-        {
-            TEntidade registroSelecionado = SelecionarPorId(id);
-
-            if (registroSelecionado != null)
-                listaRegistros.Remove(registroSelecionado);
-        }
-
         public virtual void Excluir(TEntidade registroSelecionado)
         {
             listaRegistros.Remove(registroSelecionado);

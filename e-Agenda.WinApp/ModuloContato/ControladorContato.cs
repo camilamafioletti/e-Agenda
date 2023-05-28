@@ -5,7 +5,7 @@ namespace e_Agenda.WinApp.ModuloContato
     public class ControladorContato : ControladorBase
     {
         private RepositorioContato repositorioContato;
-        private ListagemContatoControl listagemContato;
+        private TabelaContatoControl tabelaContato;
 
         public ControladorContato(RepositorioContato repositorioContato)
         {
@@ -36,7 +36,7 @@ namespace e_Agenda.WinApp.ModuloContato
 
         public override void Editar()
         {
-            Contato contato = listagemContato.ObterContatoSelecionado();
+            Contato contato = ObterContatoSelecionado();
 
             if (contato == null)
             {
@@ -63,7 +63,7 @@ namespace e_Agenda.WinApp.ModuloContato
 
         public override void Excluir()
         {            
-            Contato contato = listagemContato.ObterContatoSelecionado();
+            Contato contato = ObterContatoSelecionado();
 
             if (contato == null)
             {
@@ -90,27 +90,29 @@ namespace e_Agenda.WinApp.ModuloContato
         {
             List<Contato> contatos = repositorioContato.SelecionarTodos();
 
-            listagemContato.AtualizarRegistros(contatos);
+            tabelaContato.AtualizarRegistros(contatos);
         }
 
         public override UserControl ObterListagem()
         {
-            if (listagemContato == null)
-                listagemContato = new ListagemContatoControl();
+            if (tabelaContato == null)
+                tabelaContato = new TabelaContatoControl();
 
             CarregarContatos();
 
-            return listagemContato;
+            return tabelaContato;
+        }
+
+        private Contato ObterContatoSelecionado()
+        {
+            int id = tabelaContato.ObterIdSelecionado();
+
+            return repositorioContato.SelecionarPorId(id);
         }
 
         public override string ObterTipoCadastro()
         {
             return "Cadastro de Contatos";            
-        }
-
-        public override void Filtrar()
-        {
-            throw new NotImplementedException();
         }
     }
 }
