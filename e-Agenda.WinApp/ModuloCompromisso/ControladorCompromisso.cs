@@ -16,12 +16,15 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             this.repositorioContato = repositorioContato;
         }
 
+        #region ToolTips
         public override string ToolTipInserir { get { return "Inserir novo Compromisso"; } }
 
         public override string ToolTipEditar { get { return "Editar Compromisso Existente"; } }
 
         public override string ToolTipExcluir { get { return "Excluir Compromisso Existente"; } }
 
+        public override bool FiltrarHabilitado => true;
+        #endregion
         public override void Inserir()
         {
             TelaCompromissoForm telaCompromisso = new TelaCompromissoForm(repositorioContato);

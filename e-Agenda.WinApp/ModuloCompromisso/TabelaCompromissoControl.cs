@@ -1,4 +1,5 @@
-﻿using e_Agenda.WinApp.Properties;
+﻿using e_Agenda.WinApp.ModuloDespesa;
+using e_Agenda.WinApp.Properties;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
@@ -23,6 +24,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                 gridCompromissos.Rows.Add(compromisso.id, compromisso.titulo, compromisso.localizacao,
                 compromisso.data.ToString("dd/MM/yyyy"), compromisso.contato.nome);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {compromissos.Count} compromisso(s)");
         }
 
         private void ConfigurarColunas()

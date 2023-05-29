@@ -10,6 +10,7 @@
             this.repositorioTarefa = repositorioTarefa;
         }
 
+        #region ToolTips
         public override string ToolTipInserir { get { return "Inserir nova Tarefa"; } }
 
         public override string ToolTipEditar { get { return "Editar Tarefa existente"; } }
@@ -21,6 +22,14 @@
         public override string ToolTipAdicionarItens => "Adicionar Itens na Tarefa";
 
         public override string ToolTipConcluirItens => "Concluir Itens da Tarefa";
+
+        public override bool FiltrarHabilitado => true;
+
+        public override bool AdicionarHabilitado => true;
+
+        public override bool ConcluirHabilitado => true;
+
+        #endregion
 
         public override void Inserir()
         {

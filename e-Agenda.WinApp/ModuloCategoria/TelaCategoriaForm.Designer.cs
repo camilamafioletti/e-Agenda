@@ -91,6 +91,7 @@
             btnGravar.TabIndex = 16;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // TelaCategoriaForm
             // 

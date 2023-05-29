@@ -1,4 +1,4 @@
-﻿using e_Agenda.WinApp.ModuloTarefa;
+﻿using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.Properties;
 
 namespace e_Agenda.WinApp.ModuloDespesa
@@ -24,6 +24,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
                 gridDespesas.Rows.Add(despesa.id, despesa.descricao, despesa.valor, 
                     despesa.data.Date.ToString("dd/MM/yyyy"), despesa.tipoPagamento);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {despesas.Count} despesa(s)");
         }
 
         private void ConfigurarColunas()

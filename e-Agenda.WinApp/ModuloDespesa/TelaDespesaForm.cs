@@ -1,4 +1,6 @@
 ﻿using e_Agenda.WinApp.ModuloCategoria;
+using e_Agenda.WinApp.ModuloCompromisso;
+using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloDespesas
@@ -51,6 +53,18 @@ namespace e_Agenda.WinApp.ModuloDespesas
             cmbTipoPagamento.SelectedItem = despesaSelecionada.tipoPagamento;
         }
 
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Despesa despesa = ObterDespesa();
 
+            string[] erros = despesa.Validar();
+
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
+        }
     }
 }

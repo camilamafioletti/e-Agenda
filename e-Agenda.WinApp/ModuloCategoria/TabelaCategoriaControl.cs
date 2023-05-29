@@ -1,4 +1,5 @@
-﻿using e_Agenda.WinApp.Properties;
+﻿using e_Agenda.WinApp.ModuloDespesa;
+using e_Agenda.WinApp.Properties;
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {
@@ -23,6 +24,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
             {
                 gridCategoria.Rows.Add(categoria.id, categoria.titulo);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {categorias.Count} categoria(s)");
         }
 
         private void ConfigurarColunas()

@@ -14,11 +14,16 @@ namespace e_Agenda.WinApp.ModuloCategoria
             this.repositorioCategoria = repositorioCategoria;
         }
 
+        #region ToolTips
         public override string ToolTipInserir => "Inserir nova Categoria";
 
         public override string ToolTipEditar => "Editar Categoria existente";
 
         public override string ToolTipExcluir => "Excluir Categoria existente";
+
+        public override bool VisualizarHabilitado => true;
+
+        #endregion
 
         public override void Inserir()
         {

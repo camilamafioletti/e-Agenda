@@ -42,7 +42,7 @@
             txtTitulo.Location = new Point(77, 52);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.ReadOnly = true;
-            txtTitulo.Size = new Size(173, 23);
+            txtTitulo.Size = new Size(226, 23);
             txtTitulo.TabIndex = 13;
             // 
             // label2
@@ -99,7 +99,7 @@
             listItensTarefa.FormattingEnabled = true;
             listItensTarefa.Location = new Point(31, 94);
             listItensTarefa.Name = "listItensTarefa";
-            listItensTarefa.Size = new Size(219, 166);
+            listItensTarefa.Size = new Size(272, 166);
             listItensTarefa.TabIndex = 17;
             // 
             // TelaAtualizacaoItensTarefaForm

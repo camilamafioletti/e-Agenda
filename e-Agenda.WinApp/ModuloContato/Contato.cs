@@ -40,9 +40,6 @@ namespace e_Agenda.WinApp.ModuloContato
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
 
-            if (string.IsNullOrEmpty(telefone))
-                erros.Add("O campo 'telefone' é obrigatório");
-
             if (string.IsNullOrEmpty(email))
                 erros.Add("O campo 'email' é obrigatório");
 

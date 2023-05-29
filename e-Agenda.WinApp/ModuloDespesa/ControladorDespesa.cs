@@ -15,11 +15,13 @@ namespace e_Agenda.WinApp.ModuloDespesa
             this.repositorioCategoria = repositorioCategoria;
         }
 
+        #region ToolTips
         public override string ToolTipInserir => "Inserir nova despesa";
 
         public override string ToolTipEditar => "Editar despesa existente";
 
         public override string ToolTipExcluir => "Excluir despesa existente";
+        #endregion
 
         public override void Inserir()
         {

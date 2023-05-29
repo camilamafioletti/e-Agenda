@@ -1,4 +1,5 @@
-﻿using e_Agenda.WinApp.Properties;
+﻿using e_Agenda.WinApp.ModuloDespesa;
+using e_Agenda.WinApp.Properties;
 
 namespace e_Agenda.WinApp.ModuloContato
 {
@@ -22,6 +23,7 @@ namespace e_Agenda.WinApp.ModuloContato
             {
                 gridContato.Rows.Add(contato.id, contato.nome, contato.telefone, contato.email, contato.empresa);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {contatos.Count} contato(s)");
         }
 
         private void ConfigurarColunas()

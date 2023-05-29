@@ -1,4 +1,4 @@
-﻿using e_Agenda.WinApp.Compartilhado;
+﻿using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloTarefa
 {
@@ -50,6 +50,20 @@ namespace e_Agenda.WinApp.ModuloTarefa
             cmbPrioridade.SelectedItem = tarefaSelecionada.prioridade;
 
             txtDataCriacao.Value = tarefaSelecionada.dataCriacao;
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Tarefa tarefa = ObterTarefa();
+
+            string[] erros = tarefa.Validar();
+
+            if (erros.Length > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
     }
 }

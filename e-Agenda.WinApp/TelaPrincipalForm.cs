@@ -79,11 +79,22 @@ namespace e_Agenda.WinApp
 
         private void ConfigurarTelaPrincipal(ControladorBase controladorBase)
         {
+            toolBar.Enabled = true;
+
             labelTipoCadastro.Text = controladorBase.ObterTipoCadastro();
+
+            ConfigurarBarraFerramentas(controlador);
+
+            ConfigurarListagem(controlador);
+        }
+
+        private void ConfigurarBarraFerramentas(ControladorBase controlador)
+        {
+            toolBar.Enabled = true;
 
             ConfigurarToolTips(controlador);
 
-            ConfigurarListagem(controlador);
+            ConfigurarBoesHabilitados(controlador);
         }
 
         private void ConfigurarListagem(ControladorBase controladorBase)
@@ -102,6 +113,21 @@ namespace e_Agenda.WinApp
             btnInserir.ToolTipText = controlador.ToolTipInserir;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
+            btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
+            btnAdicionarSubtarefas.ToolTipText = controlador.ToolTipAdicionarItens;
+            btnChecharTarefas.ToolTipText = controlador.ToolTipConcluirItens;
+            btnVisualizar.ToolTipText = controlador.ToolTipVisualizarCategorias;
+        }
+
+        private void ConfigurarBoesHabilitados(ControladorBase controlador)
+        {
+            btnInserir.Enabled = controlador.InserirHabilitado;
+            btnEditar.Enabled = controlador.EditarHabilitado;
+            btnExcluir.Enabled = controlador.ExcluirHabilitado;
+            btnFiltrar.Enabled = controlador.FiltrarHabilitado;
+            btnAdicionarSubtarefas.Enabled = controlador.AdicionarHabilitado;
+            btnChecharTarefas.Enabled = controlador.ConcluirHabilitado;
+            btnVisualizar.Enabled = controlador.VisualizarHabilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)

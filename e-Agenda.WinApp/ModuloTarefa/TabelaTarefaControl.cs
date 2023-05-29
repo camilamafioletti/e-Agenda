@@ -1,4 +1,5 @@
-﻿using e_Agenda.WinApp.Properties;
+﻿using e_Agenda.WinApp.ModuloDespesa;
+using e_Agenda.WinApp.Properties;
 
 namespace e_Agenda.WinApp.ModuloTarefa
 {
@@ -22,6 +23,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
             {
                 gridTarefa.Rows.Add(tarefa.id, tarefa.titulo, tarefa.prioridade, tarefa.percentual);
             }
+            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {tarefas.Count} tarefa(s)");
         }
 
         private void ConfigurarColunas()

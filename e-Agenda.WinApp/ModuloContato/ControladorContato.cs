@@ -12,11 +12,13 @@ namespace e_Agenda.WinApp.ModuloContato
             this.repositorioContato = repositorioContato;
         }
 
+        #region ToolTips
         public override string ToolTipInserir { get { return "Inserir novo Contato";  } }
 
         public override string ToolTipEditar { get { return "Editar Contato existente"; } }
 
         public override string ToolTipExcluir { get { return "Excluir Contato existente"; } }
+        #endregion
 
         public override void Inserir()
         {
