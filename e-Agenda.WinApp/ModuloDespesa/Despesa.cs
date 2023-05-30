@@ -1,4 +1,5 @@
 ﻿using e_Agenda.WinApp.ModuloCategoria;
+using System.Drawing;
 
 namespace e_Agenda.WinApp.ModuloDespesa
 {
@@ -26,6 +27,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
             this.valor = registroAtualizado.valor;  
             this.data = registroAtualizado.data;    
             this.tipoPagamento = registroAtualizado.tipoPagamento;
+            this.categorias = registroAtualizado.categorias;
         }
 
         public override string[] Validar()
@@ -42,6 +44,10 @@ namespace e_Agenda.WinApp.ModuloDespesa
                 erros.Add("O valor não pode ser menor que 0");
 
             return erros.ToArray();
+        }
+        public override string ToString()
+        {
+            return descricao + " feita no dia " + data.ToString("dd/MM/yyyy");
         }
     }
 }

@@ -26,7 +26,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
         public override void Inserir()
         {
 
-            TelaDespesaForm telaDespesa = new TelaDespesaForm();
+            TelaDespesaForm telaDespesa = new TelaDespesaForm(repositorioCategoria.SelecionarTodos());
 
             DialogResult opcaoEscolhida = telaDespesa.ShowDialog();
 
@@ -34,8 +34,10 @@ namespace e_Agenda.WinApp.ModuloDespesa
             {
                 Despesa despesa = telaDespesa.ObterDespesa();
                 repositorioDespesa.Inserir(despesa);
-                CarregarDespesas();
+               
             }
+
+            CarregarDespesas();
         }
 
         public override void Editar()
@@ -52,7 +54,7 @@ namespace e_Agenda.WinApp.ModuloDespesa
                 return;
             }
 
-            TelaDespesaForm telaDespesa = new TelaDespesaForm();
+            TelaDespesaForm telaDespesa = new TelaDespesaForm(repositorioCategoria.SelecionarTodos());
             telaDespesa.ConfigurarTela(despesaSelecionada);
 
             DialogResult opcaoEscolhida = telaDespesa.ShowDialog();
@@ -121,5 +123,6 @@ namespace e_Agenda.WinApp.ModuloDespesa
         {
             return "Cadastro de Despesas";
         }
+
     }
 }

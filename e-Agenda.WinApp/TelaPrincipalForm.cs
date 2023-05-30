@@ -72,7 +72,7 @@ namespace e_Agenda.WinApp
 
         private void categoriasMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorCategoria(repositorioCategoria);
+            controlador = new ControladorCategoria(repositorioCategoria, repositorioDespesa);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -94,7 +94,7 @@ namespace e_Agenda.WinApp
 
             ConfigurarToolTips(controlador);
 
-            ConfigurarBoesHabilitados(controlador);
+            ConfigurarBotoesHabilitados(controlador);
         }
 
         private void ConfigurarListagem(ControladorBase controladorBase)
@@ -119,7 +119,7 @@ namespace e_Agenda.WinApp
             btnVisualizar.ToolTipText = controlador.ToolTipVisualizarCategorias;
         }
 
-        private void ConfigurarBoesHabilitados(ControladorBase controlador)
+        private void ConfigurarBotoesHabilitados(ControladorBase controlador)
         {
             btnInserir.Enabled = controlador.InserirHabilitado;
             btnEditar.Enabled = controlador.EditarHabilitado;

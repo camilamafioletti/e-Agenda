@@ -28,5 +28,17 @@ namespace e_Agenda.WinApp.ModuloCategoria
             }
             return erros.ToArray();
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Categoria categoria &&
+                   id == categoria.id &&
+                   titulo == categoria.titulo;
+        }
+
+        public override string ToString()
+        {
+            return titulo;
+        }
     }
 }

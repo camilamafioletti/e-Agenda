@@ -60,5 +60,6 @@ namespace e_Agenda.WinApp.ModuloCategoria
 
             return id;
         }
+
     }
 }

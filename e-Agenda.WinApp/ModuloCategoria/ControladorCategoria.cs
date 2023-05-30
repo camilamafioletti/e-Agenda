@@ -8,10 +8,12 @@ namespace e_Agenda.WinApp.ModuloCategoria
     {
         private RepositorioCategoria repositorioCategoria;
         private TabelaCategoriaControl tabelaCategoria;
+        private RepositorioDespesa repositorioDespesa;
 
-        public ControladorCategoria(RepositorioCategoria repositorioCategoria)
+        public ControladorCategoria(RepositorioCategoria repositorioCategoria, RepositorioDespesa repositorioDespesa)
         {
             this.repositorioCategoria = repositorioCategoria;
+            this.repositorioDespesa = repositorioDespesa;
         }
 
         #region ToolTips
@@ -105,8 +107,6 @@ namespace e_Agenda.WinApp.ModuloCategoria
             List<Categoria> categoria = repositorioCategoria.SelecionarTodos();
 
             tabelaCategoria.AtualizarRegistros(categoria);
-
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {categoria.Count} categoria(s)");
         }
 
         public override UserControl ObterListagem()
@@ -134,10 +134,19 @@ namespace e_Agenda.WinApp.ModuloCategoria
                 return;
             }
 
-            TelaVisualizarCategoriaForm telaCategoria = new TelaVisualizarCategoriaForm();
+            List<Despesa> despesasPorCategoria = repositorioDespesa.ListarDespesasPorCategorias(categoria);
 
-            telaCategoria.ShowDialog();
-            CarregarCategoria();
+            if (despesasPorCategoria.Count == 0)
+            {
+                MessageBox.Show("Nenhuma despesa para a categoria selecionada!");
+                return;
+            }
+
+            TelaVisualizarCategoriaForm tela = new TelaVisualizarCategoriaForm(despesasPorCategoria);
+
+            tela.CarregarLabel(categoria);
+
+            tela.ShowDialog();
         }
     }
 }
