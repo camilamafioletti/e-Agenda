@@ -1,15 +1,14 @@
-﻿using e_Agenda.WinApp.Compartilhado;
-using e_Agenda.WinApp.ModuloContato;
+﻿using e_Agenda.WinApp.ModuloContato;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public class ControladorCompromisso : ControladorBase
     {
-        private RepositorioCompromisso repositorioCompromisso;
-        private RepositorioContato repositorioContato;
+        private IRepositorioCompromisso repositorioCompromisso;
+        private IRepositorioContato repositorioContato;
         private TabelaCompromissoControl tabelaCompromissos;
 
-        public ControladorCompromisso(RepositorioCompromisso repositorioCompromisso, RepositorioContato repositorioContato)
+        public ControladorCompromisso(IRepositorioCompromisso repositorioCompromisso, IRepositorioContato repositorioContato)
         {
 
             this.repositorioCompromisso = repositorioCompromisso;
@@ -33,7 +32,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Compromisso compromisso = telaCompromisso.Compromisso;
+                Compromisso compromisso = telaCompromisso.ObterCompromisso();
 
                 repositorioCompromisso.Inserir(compromisso);
 
@@ -43,9 +42,9 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
         public override void Editar()
         {
-            Compromisso compromisso = ObterCompromissoSelecionado();
+            Compromisso compromissoSelecionado = ObterCompromissoSelecionado();
 
-            if (compromisso == null)
+            if (compromissoSelecionado == null)
             {
                 MessageBox.Show($"Selecione um contato primeiro!",
                     "Edição de Contatos",
@@ -55,13 +54,14 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                 return;
             }
 
-            TelaCompromissoForm telaCompromisso = new TelaCompromissoForm(repositorioContato);
-            telaCompromisso.Compromisso = compromisso;
+            TelaCompromissoForm telaCompromisso = new TelaCompromissoForm((RepositorioContato)repositorioContato);
+            telaCompromisso.ConfigurarTela(compromissoSelecionado);
 
             DialogResult opcaoEscolhida = telaCompromisso.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                Compromisso compromisso = telaCompromisso.ObterCompromisso();
                 repositorioCompromisso.Editar(compromisso.id, compromisso);
 
                 CarregarCompromissos();
@@ -70,9 +70,9 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 
         public override void Excluir()
         {
-            Compromisso compromisso = ObterCompromissoSelecionado();
+            Compromisso compromissoSelecionado = ObterCompromissoSelecionado();
 
-            if (compromisso == null)
+            if (compromissoSelecionado == null)
             {
                 MessageBox.Show($"Selecione um contato primeiro!",
                     "Exclusão de Contatos",
@@ -82,12 +82,12 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o contato {compromisso.titulo}?", "Exclusão de Contatos",
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o contato {compromissoSelecionado.titulo}?", "Exclusão de Contatos",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioCompromisso.Excluir(compromisso);
+                repositorioCompromisso.Excluir(compromissoSelecionado);
 
                 CarregarCompromissos();
             }

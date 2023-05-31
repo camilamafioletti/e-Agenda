@@ -2,10 +2,10 @@
 {
     public class ControladorTarefa : ControladorBase
     {
-        private RepositorioTarefa repositorioTarefa;
+        private IRepositorioTarefa repositorioTarefa;
         private TabelaTarefaControl tabelaTarefas;
 
-        public ControladorTarefa(RepositorioTarefa repositorioTarefa)
+        public ControladorTarefa(IRepositorioTarefa repositorioTarefa)
         {
             this.repositorioTarefa = repositorioTarefa;
         }
@@ -192,7 +192,7 @@
                         break;
 
                     default:
-                        tarefas = repositorioTarefa.SelecionarTodosOrdenadosPorPrioridade();
+                        tarefas = repositorioTarefa.SelecionarPorPrioridade();
                         break;
                 }
 
@@ -209,7 +209,7 @@
 
         private void CarregarTarefas()
         {
-            List<Tarefa> tarefas = repositorioTarefa.SelecionarTodosOrdenadosPorPrioridade();
+            List<Tarefa> tarefas = repositorioTarefa.SelecionarPorPrioridade();
 
             tabelaTarefas.AtualizarRegistros(tarefas);
 

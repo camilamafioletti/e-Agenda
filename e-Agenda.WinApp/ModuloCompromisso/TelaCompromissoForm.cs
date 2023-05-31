@@ -7,58 +7,51 @@ namespace e_Agenda.WinApp.ModuloCompromisso
     {
         private Compromisso compromisso;
 
-        private RepositorioContato repositorioContato;
+        private IRepositorioContato repositorioContato;
 
 
-        public TelaCompromissoForm(RepositorioContato repositorioContato)
+        public TelaCompromissoForm(IRepositorioContato repositorioContato)
         {
             InitializeComponent();
             this.repositorioContato = repositorioContato;
 
         }
-         
-        public Compromisso Compromisso
+
+        public Compromisso ObterCompromisso()
         {
-            set
-            {
-                txtId.Text = value.id.ToString();
-                comboBoxContato.Text = value.contato.ToString();
-                txtTitulo.Text = value.titulo;
-                txtLocalizacao.Text = value.localizacao;
-                DTPData.Value = value.data;
-                dtpInicio.Value = value.dataInicio;
-                dtpTermino.Value = value.dataTermino;
-                rdbPresencial.Checked = value.presencial;
-                rdbRemoto.Checked = value.remoto;
-            }
-            get
-            {
-                return compromisso;
-            }
+            Contato contato = comboBoxContato.SelectedItem as Contato;
+
+            int id = Convert.ToInt32(txtId.Text);
+            string titulo = txtTitulo.Text;
+            DateTime data = DTPData.Value;
+            DateTime dataInicio = dtpInicio.Value;
+            DateTime dataTermino = dtpTermino.Value;
+            string localizacao = txtLocalizacao.Text;
+            bool remoto = rdbRemoto.Checked;
+            bool presencial = rdbPresencial.Checked;
+
+            Compromisso compromisso = new Compromisso(contato, titulo, localizacao, data, dataInicio, dataTermino, remoto, presencial);
+            compromisso.id = id;    
+
+            return compromisso;
+        }
+
+        public void ConfigurarTela(Compromisso compromissoSelecionado)
+        {
+            txtId.Text = compromissoSelecionado.id.ToString();
+            comboBoxContato.Text = compromissoSelecionado.contato.ToString();
+            txtTitulo.Text = compromissoSelecionado.titulo;
+            txtLocalizacao.Text = compromissoSelecionado.localizacao;
+            DTPData.Value = compromissoSelecionado.data;
+            dtpInicio.Value = compromissoSelecionado.dataInicio;
+            dtpTermino.Value = compromissoSelecionado.dataTermino;
+            rdbPresencial.Checked = compromissoSelecionado.presencial;
+            rdbRemoto.Checked = compromissoSelecionado.remoto;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Contato contato = comboBoxContato.SelectedItem as Contato;
-
-            string titulo = txtTitulo.Text;
-
-            DateTime data = DTPData.Value;
-
-            DateTime dataInicio = dtpInicio.Value;
-
-            DateTime dataTermino = dtpTermino.Value;
-
-            string localizacao = txtLocalizacao.Text;
-
-            bool remoto = rdbRemoto.Checked;
-
-            bool presencial = rdbPresencial.Checked;
-
-            compromisso = new Compromisso(contato, titulo, localizacao, data, dataInicio, dataTermino, remoto, presencial);
-
-            if (txtId.Text != "0")
-                compromisso.id = Convert.ToInt32(txtId.Text);
+            Compromisso compromisso = ObterCompromisso();
 
             string[] erros = compromisso.Validar();
 

@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinApp.ModuloDespesa;
-
-namespace e_Agenda.WinApp.ModuloTarefa
+﻿namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaTarefaForm : Form
     {

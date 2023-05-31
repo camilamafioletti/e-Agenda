@@ -10,11 +10,19 @@ namespace e_Agenda.WinApp
     public partial class TelaPrincipalForm : Form
     {
         private ControladorBase controlador;
-        private RepositorioContato repositorioContato = new RepositorioContato(new List<Contato>());
-        private RepositorioTarefa repositorioTarefa = new RepositorioTarefa(new List<Tarefa>());
-        private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
-        private RepositorioDespesa repositorioDespesa = new RepositorioDespesa(new List<Despesa>());
-        private RepositorioCategoria repositorioCategoria = new RepositorioCategoria(new List<Categoria>());
+
+        private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaEmArquivo();
+        private IRepositorioDespesa repositorioDespesa = new RepositorioDespesaEmArquivo();
+        private IRepositorioCategoria repositorioCategoria = new RepositorioCategoriaEmArquivo();
+        private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoEmArquivo();
+        private IRepositorioContato repositorioContato = new RepositorioContatoEmArquivo();
+
+
+        //private RepositorioContato repositorioContato = new RepositorioContato(new List<Contato>());
+        //private RepositorioTarefa repositorioTarefa = new RepositorioTarefa(new List<Tarefa>());
+        //private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
+        //private RepositorioDespesa repositorioDespesa = new RepositorioDespesa(new List<Despesa>());
+        //private RepositorioCategoria repositorioCategoria = new RepositorioCategoria(new List<Categoria>());
 
         private static TelaPrincipalForm telaPrincipal;
 

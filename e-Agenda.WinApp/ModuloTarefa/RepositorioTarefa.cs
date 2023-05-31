@@ -1,6 +1,6 @@
 ﻿namespace e_Agenda.WinApp.ModuloTarefa
 {
-    public class RepositorioTarefa : RepositorioBase<Tarefa>
+    public class RepositorioTarefa : RepositorioBase<Tarefa>, IRepositorioTarefa
     {
 
         public RepositorioTarefa(List<Tarefa> tarefas)
@@ -24,7 +24,7 @@
                 .ToList();
         }
 
-        public List<Tarefa> SelecionarTodosOrdenadosPorPrioridade()
+        public List<Tarefa> SelecionarPorPrioridade()
         {
             return listaRegistros
                 .OrderByDescending(x => x.prioridade)

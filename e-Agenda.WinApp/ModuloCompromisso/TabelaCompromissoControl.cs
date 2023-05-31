@@ -22,7 +22,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             foreach (Compromisso compromisso in compromissos)
             {
                 gridCompromissos.Rows.Add(compromisso.id, compromisso.titulo, compromisso.localizacao,
-                compromisso.data.ToString("dd/MM/yyyy"), compromisso.contato.nome);
+                compromisso.data.ToString("dd/MM/yyyy"), compromisso.contato);
             }
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {compromissos.Count} compromisso(s)");
         }
@@ -39,7 +39,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "titulo",
-                    HeaderText = "Assunto"
+                    HeaderText = "Titulo"
                 },
                 new DataGridViewTextBoxColumn()
                 {
