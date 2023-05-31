@@ -1,43 +1,13 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
-
-namespace e_Agenda.WinApp.ModuloTarefa
+﻿namespace e_Agenda.WinApp.ModuloTarefa
 {
     public class RepositorioTarefaEmArquivo : RepositorioArquivoBase<Tarefa>, IRepositorioTarefa
     {
-
-        private const string NOME_ARQUIVO_TAREFAS = "tarefas.bin";
-
-
-
         public RepositorioTarefaEmArquivo()
         {
-            if (File.Exists(NOME_ARQUIVO_TAREFAS))
-                CarregarRegistrosDoArquivo(NOME_ARQUIVO_TAREFAS);
-        }
+            NOME_ARQUIVO = "D:\\Arquivos\\Programas\\e-Agenda-2023-master\\e-Agenda-2023-master\\Arquivos\\tarefa.bin";
 
-        public void Editar(int id, Tarefa tarefa)
-        {
-            Tarefa tarefaSelecionada = SelecionarPorId(id);
-
-            tarefaSelecionada.AtualizarInformacoes(tarefa);
-
-            GravarTarefasEmArquivo(NOME_ARQUIVO_TAREFAS);
-        }
-
-        public void Excluir(Tarefa tarefaSelecionada)
-        {
-            listaRegistros.Remove(tarefaSelecionada);
-
-            GravarTarefasEmArquivo(NOME_ARQUIVO_TAREFAS);
-        }
-
-        public void Inserir(Tarefa novaTarefa)
-        {
-            contadorRegistros++;
-            novaTarefa.id = contadorRegistros;
-            listaRegistros.Add(novaTarefa);
-
-            GravarTarefasEmArquivo(NOME_ARQUIVO_TAREFAS);
+            if (File.Exists(NOME_ARQUIVO))
+                CarregarRegistrosDoArquivo();
         }
 
         public List<Tarefa> SelecionarConcluidas()
@@ -54,24 +24,13 @@ namespace e_Agenda.WinApp.ModuloTarefa
                     .ToList();
         }
 
-        public Tarefa SelecionarPorId(int id)
-        {
-            Tarefa tarefa = listaRegistros.FirstOrDefault(x => x.id == id);
-
-            return tarefa;
-        }
-
-        public List<Tarefa> SelecionarPorPrioridade()
+        public List<Tarefa> SelecionarOrdenadoPorPrioridade()
         {
             return listaRegistros
-                   .OrderByDescending(x => x.prioridade)
-                   .ToList();
-        }
-
-        public List<Tarefa> SelecionarTodos()
-        {
-            return listaRegistros;
+                    .OrderByDescending(x => x.prioridade)
+                    .ToList();
         }
 
     }
 }
+

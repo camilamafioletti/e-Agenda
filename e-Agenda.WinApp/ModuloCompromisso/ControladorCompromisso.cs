@@ -150,7 +150,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                     break;
 
                 case StatusCompromissoEnum.Passado:
-                    compromissos = repositorioCompromisso.SelecionarCompromissosPassado();
+                    compromissos = repositorioCompromisso.SelecionarCompromissosPassados(DateTime.Now);
                     tipoCompromisso = "passado(s)";
                     break;
 

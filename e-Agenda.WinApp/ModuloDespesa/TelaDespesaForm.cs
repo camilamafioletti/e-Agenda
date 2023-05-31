@@ -48,6 +48,7 @@ namespace e_Agenda.WinApp.ModuloDespesas
 
             return despesa;
         }
+
         public void ConfigurarTela(Despesa despesaSelecionada)
         {
             txtId.Text = despesaSelecionada.id.ToString();
@@ -101,6 +102,12 @@ namespace e_Agenda.WinApp.ModuloDespesas
             }
             despesa.id = id;
 
+            AtualizarErros(despesa);
+
+        }
+
+        private void AtualizarErros(Despesa despesa)
+        {
             List<string> erros = despesa.Validar().ToList();
 
             if (erros.Any())
@@ -109,7 +116,6 @@ namespace e_Agenda.WinApp.ModuloDespesas
 
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
             }
-
         }
     }
 }

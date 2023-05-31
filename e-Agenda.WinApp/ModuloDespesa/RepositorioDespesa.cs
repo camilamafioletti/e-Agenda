@@ -1,12 +1,13 @@
 ﻿using e_Agenda.WinApp.ModuloCategoria;
+using e_Agenda.WinApp.ModuloDespesa;
 
-namespace e_Agenda.WinApp.ModuloDespesa
+namespace e_Agenda.WinApp.ModuloDespesas
 {
-    public class RepositorioDespesa : RepositorioBase<Despesa>, IRepositorioDespesa
+    public class RepositorioDespesaEmMemoria : RepositorioBase<Despesa>
     {
-        public RepositorioDespesa(List<Despesa> despesas)
+        public RepositorioDespesaEmMemoria(List<Despesa> listaDespesas)
         {
-            this.listaRegistros = despesas;
+            this.listaRegistros = listaDespesas;
         }
 
         public List<Despesa> ListarDespesasPorCategorias(Categoria categoria)

@@ -51,9 +51,9 @@
             lblCategoria.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblCategoria.Location = new Point(79, 35);
             lblCategoria.Name = "lblCategoria";
-            lblCategoria.Size = new Size(28, 15);
+            lblCategoria.Size = new Size(62, 15);
             lblCategoria.TabIndex = 1;
-            lblCategoria.Text = "CAT";
+            lblCategoria.Text = "-----------";
             // 
             // groupBox1
             // 
@@ -77,25 +77,27 @@
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.LightPink;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(326, 290);
+            btnCancelar.Location = new Point(18, 282);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 41);
+            btnCancelar.Size = new Size(377, 49);
             btnCancelar.TabIndex = 18;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // TelaVisualizarCategoriaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LavenderBlush;
             ClientSize = new Size(413, 343);
             Controls.Add(btnCancelar);
             Controls.Add(groupBox1);
             Controls.Add(lblCategoria);
             Controls.Add(label1);
             Name = "TelaVisualizarCategoriaForm";
-            Text = "TelaVisualizarCategoria";
+            Text = "Visualizar Categoria";
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

@@ -32,42 +32,44 @@
             btnGravar = new Button();
             txtTitulo = new TextBox();
             label2 = new Label();
-            txtId = new TextBox();
             label1 = new Label();
             cmbPrioridade = new ComboBox();
             label3 = new Label();
             label4 = new Label();
             txtDataCriacao = new DateTimePicker();
+            txtId = new Label();
             SuspendLayout();
             // 
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.LightPink;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(167, 163);
+            btnCancelar.Location = new Point(225, 171);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(74, 41);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnGravar
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.BackColor = Color.LightPink;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(91, 163);
+            btnGravar.Location = new Point(149, 171);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(70, 41);
             btnGravar.TabIndex = 2;
             btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             btnGravar.Click += btnGravar_Click;
             // 
             // txtTitulo
             // 
             txtTitulo.Location = new Point(91, 58);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(150, 23);
+            txtTitulo.Size = new Size(151, 23);
             txtTitulo.TabIndex = 9;
             // 
             // label2
@@ -78,15 +80,6 @@
             label2.Size = new Size(40, 15);
             label2.TabIndex = 8;
             label2.Text = "Título:";
-            // 
-            // txtId
-            // 
-            txtId.Location = new Point(91, 29);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(26, 23);
-            txtId.TabIndex = 7;
-            txtId.Text = "0";
             // 
             // label1
             // 
@@ -132,18 +125,28 @@
             txtDataCriacao.Size = new Size(150, 23);
             txtDataCriacao.TabIndex = 13;
             // 
+            // txtId
+            // 
+            txtId.AutoSize = true;
+            txtId.Location = new Point(92, 32);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(13, 15);
+            txtId.TabIndex = 14;
+            txtId.Text = "0";
+            // 
             // TelaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(254, 216);
+            BackColor = Color.LavenderBlush;
+            ClientSize = new Size(312, 224);
+            Controls.Add(txtId);
             Controls.Add(txtDataCriacao);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(cmbPrioridade);
             Controls.Add(txtTitulo);
             Controls.Add(label2);
-            Controls.Add(txtId);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
@@ -159,11 +162,11 @@
         private Button btnGravar;
         private TextBox txtTitulo;
         private Label label2;
-        private TextBox txtId;
         private Label label1;
         private ComboBox cmbPrioridade;
         private Label label3;
         private Label label4;
         private DateTimePicker txtDataCriacao;
+        private Label txtId;
     }
 }

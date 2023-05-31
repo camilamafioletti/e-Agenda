@@ -31,6 +31,11 @@ namespace e_Agenda.WinApp.ModuloCategoria
         {
             Categoria categoria = ObterCategoria();
 
+            AtualizarErros(categoria);
+        }
+
+        private void AtualizarErros(Categoria categoria)
+        {
             string[] erros = categoria.Validar();
 
             if (erros.Length > 0)

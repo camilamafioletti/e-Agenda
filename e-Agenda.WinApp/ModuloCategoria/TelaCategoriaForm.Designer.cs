@@ -39,7 +39,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(35, 37);
+            label1.Location = new Point(12, 28);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
             label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(49, 65);
+            label2.Location = new Point(26, 59);
             label2.Name = "label2";
             label2.Size = new Size(37, 15);
             label2.TabIndex = 1;
@@ -57,7 +57,7 @@
             // txtId
             // 
             txtId.AutoSize = true;
-            txtId.Location = new Point(92, 37);
+            txtId.Location = new Point(69, 28);
             txtId.Name = "txtId";
             txtId.Size = new Size(13, 15);
             txtId.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(92, 62);
+            txtTitulo.Location = new Point(69, 56);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(300, 23);
             txtTitulo.TabIndex = 3;
@@ -73,31 +73,34 @@
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.LightPink;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(317, 116);
+            btnCancelar.Location = new Point(294, 93);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 17;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnGravar
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.BackColor = Color.LightPink;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(236, 116);
+            btnGravar.Location = new Point(213, 93);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 16;
             btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             btnGravar.Click += btnGravar_Click;
             // 
             // TelaCategoriaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(404, 169);
+            BackColor = Color.LavenderBlush;
+            ClientSize = new Size(383, 146);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(txtTitulo);
@@ -105,7 +108,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "TelaCategoriaForm";
-            Text = "TelaCategoriaForm";
+            Text = "Adicionar Categoria";
             ResumeLayout(false);
             PerformLayout();
         }

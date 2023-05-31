@@ -41,14 +41,14 @@
             label5 = new Label();
             groupBox1 = new GroupBox();
             chCategorias = new CheckedListBox();
-            txtId = new TextBox();
+            txtId = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // txtDataCriacao
             // 
             txtDataCriacao.Format = DateTimePickerFormat.Short;
-            txtDataCriacao.Location = new Point(93, 125);
+            txtDataCriacao.Location = new Point(81, 106);
             txtDataCriacao.Name = "txtDataCriacao";
             txtDataCriacao.Size = new Size(111, 23);
             txtDataCriacao.TabIndex = 23;
@@ -56,7 +56,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(53, 131);
+            label4.Location = new Point(41, 112);
             label4.Name = "label4";
             label4.Size = new Size(34, 15);
             label4.TabIndex = 22;
@@ -65,7 +65,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(210, 100);
+            label3.Location = new Point(198, 81);
             label3.Name = "label3";
             label3.Size = new Size(71, 15);
             label3.TabIndex = 21;
@@ -75,22 +75,23 @@
             // 
             cmbTipoPagamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipoPagamento.FormattingEnabled = true;
-            cmbTipoPagamento.Location = new Point(287, 97);
+            cmbTipoPagamento.Location = new Point(275, 78);
             cmbTipoPagamento.Name = "cmbTipoPagamento";
-            cmbTipoPagamento.Size = new Size(99, 23);
+            cmbTipoPagamento.Size = new Size(111, 23);
             cmbTipoPagamento.TabIndex = 20;
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(93, 67);
+            txtDescricao.BackColor = SystemColors.Control;
+            txtDescricao.Location = new Point(81, 48);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(293, 23);
+            txtDescricao.Size = new Size(305, 23);
             txtDescricao.TabIndex = 19;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(26, 70);
+            label2.Location = new Point(14, 51);
             label2.Name = "label2";
             label2.Size = new Size(61, 15);
             label2.TabIndex = 18;
@@ -99,7 +100,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(67, 42);
+            label1.Location = new Point(55, 23);
             label1.Name = "label1";
             label1.Size = new Size(20, 15);
             label1.TabIndex = 16;
@@ -108,29 +109,32 @@
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.LightPink;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(311, 342);
+            btnCancelar.Location = new Point(311, 334);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 15;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnGravar
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.BackColor = Color.LightPink;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(230, 342);
+            btnGravar.Location = new Point(230, 334);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 14;
             btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             btnGravar.Click += btnGravar_Click;
             // 
             // txtValor
             // 
-            txtValor.Location = new Point(93, 96);
+            txtValor.BackColor = SystemColors.Control;
+            txtValor.Location = new Point(81, 77);
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(111, 23);
             txtValor.TabIndex = 25;
@@ -138,7 +142,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(47, 100);
+            label5.Location = new Point(35, 81);
             label5.Name = "label5";
             label5.Size = new Size(36, 15);
             label5.TabIndex = 24;
@@ -147,7 +151,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(chCategorias);
-            groupBox1.Location = new Point(17, 154);
+            groupBox1.Location = new Point(17, 137);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(376, 182);
             groupBox1.TabIndex = 26;
@@ -156,6 +160,7 @@
             // 
             // chCategorias
             // 
+            chCategorias.BackColor = Color.LightPink;
             chCategorias.FormattingEnabled = true;
             chCategorias.Location = new Point(6, 22);
             chCategorias.Name = "chCategorias";
@@ -164,17 +169,19 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(93, 38);
+            txtId.AutoSize = true;
+            txtId.Location = new Point(81, 23);
             txtId.Name = "txtId";
-            txtId.Size = new Size(26, 23);
-            txtId.TabIndex = 8;
+            txtId.Size = new Size(13, 15);
+            txtId.TabIndex = 27;
             txtId.Text = "0";
             // 
             // TelaDespesaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(405, 395);
+            BackColor = Color.LavenderBlush;
+            ClientSize = new Size(405, 387);
             Controls.Add(txtId);
             Controls.Add(groupBox1);
             Controls.Add(txtValor);
@@ -210,6 +217,6 @@
         private Label label5;
         private GroupBox groupBox1;
         private CheckedListBox chCategorias;
-        private TextBox txtId;
+        private Label txtId;
     }
 }

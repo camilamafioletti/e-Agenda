@@ -32,7 +32,6 @@
             lblTituloCompromisso = new Label();
             lblDataCompromisso = new Label();
             txtTitulo = new TextBox();
-            txtId = new TextBox();
             DTPData = new DateTimePicker();
             label1 = new Label();
             label2 = new Label();
@@ -46,6 +45,7 @@
             dtpInicio = new DateTimePicker();
             dtpTermino = new DateTimePicker();
             groupBox1 = new GroupBox();
+            txtId = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,7 +73,7 @@
             // 
             lblDataCompromisso.AutoSize = true;
             lblDataCompromisso.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDataCompromisso.Location = new Point(21, 80);
+            lblDataCompromisso.Location = new Point(21, 109);
             lblDataCompromisso.Name = "lblDataCompromisso";
             lblDataCompromisso.Size = new Size(31, 15);
             lblDataCompromisso.TabIndex = 2;
@@ -86,28 +86,19 @@
             txtTitulo.Size = new Size(349, 23);
             txtTitulo.TabIndex = 3;
             // 
-            // txtId
-            // 
-            txtId.Location = new Point(59, 16);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(31, 23);
-            txtId.TabIndex = 5;
-            txtId.Text = "0";
-            // 
             // DTPData
             // 
             DTPData.Format = DateTimePickerFormat.Short;
-            DTPData.Location = new Point(59, 74);
+            DTPData.Location = new Point(59, 103);
             DTPData.Name = "DTPData";
-            DTPData.Size = new Size(188, 23);
+            DTPData.Size = new Size(109, 23);
             DTPData.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(17, 107);
+            label1.Location = new Point(18, 78);
             label1.Name = "label1";
             label1.Size = new Size(36, 15);
             label1.TabIndex = 8;
@@ -117,7 +108,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(243, 107);
+            label2.Location = new Point(244, 78);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 9;
@@ -149,33 +140,36 @@
             // 
             btnGravar.AccessibleName = "btnGaravarCompromisso";
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.BackColor = Color.LightPink;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(243, 265);
+            btnGravar.Location = new Point(250, 209);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 14;
             btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             btnGravar.Click += btnGravar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.AccessibleName = "btnCancelarTarefa";
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.LightPink;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(326, 265);
+            btnCancelar.Location = new Point(333, 209);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 15;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // comboBoxContato
             // 
+            comboBoxContato.BackColor = Color.LightPink;
             comboBoxContato.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxContato.Enabled = false;
             comboBoxContato.FormattingEnabled = true;
-            comboBoxContato.Location = new Point(21, 166);
+            comboBoxContato.Location = new Point(21, 159);
             comboBoxContato.Name = "comboBoxContato";
             comboBoxContato.Size = new Size(168, 23);
             comboBoxContato.TabIndex = 16;
@@ -191,7 +185,7 @@
             // 
             ckbAdicionarContato.AutoSize = true;
             ckbAdicionarContato.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            ckbAdicionarContato.Location = new Point(21, 141);
+            ckbAdicionarContato.Location = new Point(21, 134);
             ckbAdicionarContato.Name = "ckbAdicionarContato";
             ckbAdicionarContato.Size = new Size(123, 19);
             ckbAdicionarContato.TabIndex = 20;
@@ -203,7 +197,7 @@
             // 
             dtpInicio.CustomFormat = "HH:mm";
             dtpInicio.Format = DateTimePickerFormat.Custom;
-            dtpInicio.Location = new Point(59, 103);
+            dtpInicio.Location = new Point(60, 74);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(109, 23);
             dtpInicio.TabIndex = 21;
@@ -212,7 +206,7 @@
             // 
             dtpTermino.CustomFormat = "HH:mm";
             dtpTermino.Format = DateTimePickerFormat.Custom;
-            dtpTermino.Location = new Point(298, 103);
+            dtpTermino.Location = new Point(299, 74);
             dtpTermino.Name = "dtpTermino";
             dtpTermino.Size = new Size(109, 23);
             dtpTermino.TabIndex = 22;
@@ -222,18 +216,29 @@
             groupBox1.Controls.Add(txtLocalizacao);
             groupBox1.Controls.Add(rdbRemoto);
             groupBox1.Controls.Add(rdbPresencial);
-            groupBox1.Location = new Point(208, 163);
+            groupBox1.Location = new Point(208, 111);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(200, 78);
             groupBox1.TabIndex = 23;
             groupBox1.TabStop = false;
             groupBox1.Text = "localização";
             // 
+            // txtId
+            // 
+            txtId.AutoSize = true;
+            txtId.Location = new Point(60, 19);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(13, 15);
+            txtId.TabIndex = 20;
+            txtId.Text = "0";
+            // 
             // TelaCompromissoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(424, 323);
+            BackColor = Color.LavenderBlush;
+            ClientSize = new Size(424, 262);
+            Controls.Add(txtId);
             Controls.Add(groupBox1);
             Controls.Add(dtpTermino);
             Controls.Add(dtpInicio);
@@ -244,7 +249,6 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(DTPData);
-            Controls.Add(txtId);
             Controls.Add(txtTitulo);
             Controls.Add(lblDataCompromisso);
             Controls.Add(lblTituloCompromisso);
@@ -264,7 +268,6 @@
         private Label lblTituloCompromisso;
         private Label lblDataCompromisso;
         private TextBox txtTitulo;
-        private TextBox txtId;
         private DateTimePicker DTPData;
         private Label label1;
         private Label label2;
@@ -278,5 +281,6 @@
         private DateTimePicker dtpInicio;
         private DateTimePicker dtpTermino;
         private GroupBox groupBox1;
+        private Label txtId;
     }
 }

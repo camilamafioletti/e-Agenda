@@ -54,6 +54,11 @@
         {
             Tarefa tarefa = ObterTarefa();
 
+            AtualizarErros(tarefa);
+        }
+
+        private void AtualizarErros(Tarefa tarefa)
+        {
             string[] erros = tarefa.Validar();
 
             if (erros.Length > 0)

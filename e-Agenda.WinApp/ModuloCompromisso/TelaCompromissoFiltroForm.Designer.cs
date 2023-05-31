@@ -45,7 +45,7 @@
             // 
             rdbTodosCompromissos.AutoSize = true;
             rdbTodosCompromissos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbTodosCompromissos.Location = new Point(18, 29);
+            rdbTodosCompromissos.Location = new Point(18, 37);
             rdbTodosCompromissos.Name = "rdbTodosCompromissos";
             rdbTodosCompromissos.Size = new Size(231, 21);
             rdbTodosCompromissos.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             rdbCompromissosPassados.AutoSize = true;
             rdbCompromissosPassados.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbCompromissosPassados.Location = new Point(18, 74);
+            rdbCompromissosPassados.Location = new Point(18, 82);
             rdbCompromissosPassados.Name = "rdbCompromissosPassados";
             rdbCompromissosPassados.Size = new Size(232, 21);
             rdbCompromissosPassados.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             rdbCompromissosFuturos.AutoSize = true;
             rdbCompromissosFuturos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbCompromissosFuturos.Location = new Point(18, 118);
+            rdbCompromissosFuturos.Location = new Point(18, 126);
             rdbCompromissosFuturos.Name = "rdbCompromissosFuturos";
             rdbCompromissosFuturos.Size = new Size(220, 21);
             rdbCompromissosFuturos.TabIndex = 2;
@@ -86,9 +86,9 @@
             GroupBoxFiltroFuturo.Controls.Add(txtDataInicial);
             GroupBoxFiltroFuturo.Controls.Add(label2);
             GroupBoxFiltroFuturo.Controls.Add(label1);
-            GroupBoxFiltroFuturo.Location = new Point(12, 181);
+            GroupBoxFiltroFuturo.Location = new Point(272, 24);
             GroupBoxFiltroFuturo.Name = "GroupBoxFiltroFuturo";
-            GroupBoxFiltroFuturo.Size = new Size(475, 105);
+            GroupBoxFiltroFuturo.Size = new Size(238, 134);
             GroupBoxFiltroFuturo.TabIndex = 3;
             GroupBoxFiltroFuturo.TabStop = false;
             GroupBoxFiltroFuturo.Text = "Filtro Para Compromissos Futuros";
@@ -97,16 +97,16 @@
             // 
             txtDataFinal.CustomFormat = "";
             txtDataFinal.Format = DateTimePickerFormat.Short;
-            txtDataFinal.Location = new Point(303, 39);
+            txtDataFinal.Location = new Point(74, 74);
             txtDataFinal.Name = "txtDataFinal";
-            txtDataFinal.Size = new Size(153, 23);
+            txtDataFinal.Size = new Size(147, 23);
             txtDataFinal.TabIndex = 23;
             // 
             // txtDataInicial
             // 
             txtDataInicial.CustomFormat = "";
             txtDataInicial.Format = DateTimePickerFormat.Short;
-            txtDataInicial.Location = new Point(73, 39);
+            txtDataInicial.Location = new Point(74, 45);
             txtDataInicial.Name = "txtDataInicial";
             txtDataInicial.Size = new Size(147, 23);
             txtDataInicial.TabIndex = 22;
@@ -115,7 +115,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(235, 43);
+            label2.Location = new Point(6, 78);
             label2.Name = "label2";
             label2.Size = new Size(62, 15);
             label2.TabIndex = 1;
@@ -125,7 +125,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(6, 43);
+            label1.Location = new Point(7, 49);
             label1.Name = "label1";
             label1.Size = new Size(68, 15);
             label1.TabIndex = 0;
@@ -135,31 +135,34 @@
             // 
             btnGravar.AccessibleName = "btnGaravarCompromisso";
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.BackColor = Color.LightPink;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(312, 299);
+            btnGravar.Location = new Point(344, 185);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 15;
             btnGravar.Text = "Filtrar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
             button1.AccessibleName = "btnGaravarCompromisso";
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.BackColor = Color.LightPink;
             button1.DialogResult = DialogResult.OK;
-            button1.Location = new Point(409, 299);
+            button1.Location = new Point(425, 185);
             button1.Name = "button1";
             button1.Size = new Size(75, 41);
             button1.TabIndex = 16;
             button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
             // TelaCompromissoFiltroForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(496, 346);
+            BackColor = Color.LavenderBlush;
+            ClientSize = new Size(521, 232);
             Controls.Add(button1);
             Controls.Add(btnGravar);
             Controls.Add(GroupBoxFiltroFuturo);

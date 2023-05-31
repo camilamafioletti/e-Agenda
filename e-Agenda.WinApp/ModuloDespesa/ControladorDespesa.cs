@@ -33,11 +33,12 @@ namespace e_Agenda.WinApp.ModuloDespesa
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Despesa despesa = telaDespesa.ObterDespesa();
-                repositorioDespesa.Inserir(despesa);
-               
-            }
 
-            CarregarDespesas();
+                repositorioDespesa.Inserir(despesa);
+
+                CarregarDespesas();
+
+            }
         }
 
         public override void Editar()

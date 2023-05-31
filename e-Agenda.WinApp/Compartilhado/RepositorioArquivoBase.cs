@@ -2,32 +2,73 @@
 
 namespace e_Agenda.WinApp.Compartilhado
 {
-    public class RepositorioArquivoBase<TEntidade> where TEntidade : EntidadeBase<TEntidade>
+    public class RepositorioArquivoBase<TEntidade>
+        where TEntidade : EntidadeBase<TEntidade>
     {
 
-        protected int contadorRegistros = 0;
+        private static int contador;
+
         protected List<TEntidade> listaRegistros = new List<TEntidade>();
 
+        protected string NOME_ARQUIVO = "";
 
-        public void CarregarRegistrosDoArquivo(string caminho)
+        public virtual void Inserir(TEntidade novoRegistro)
+        {
+            contador++;
+            novoRegistro.id = contador;
+            listaRegistros.Add(novoRegistro);
+
+            GravarRegistrosEmArquivo();
+        }
+
+        public virtual void Editar(int id, TEntidade registroAtualizado)
+        {
+            EntidadeBase<TEntidade> registroSelecionada = SelecionarPorId(id);
+
+            registroSelecionada.AtualizarInformacoes(registroAtualizado);
+
+            GravarRegistrosEmArquivo();
+        }
+
+        public virtual void Excluir(TEntidade registroSelecionado)
+        {
+            listaRegistros.Remove(registroSelecionado);
+
+            GravarRegistrosEmArquivo();
+        }
+
+        public virtual TEntidade SelecionarPorId(int id)
+        {
+            if (listaRegistros.Exists(registro => registro.id == id))
+                return listaRegistros.FirstOrDefault(registro => registro.id == id);
+
+            return null;
+        }
+
+        public virtual List<TEntidade> SelecionarTodos()
+        {
+            return listaRegistros.OrderByDescending(x => x.id).ToList();
+        }
+
+        private void AtualizarContador()
+        {
+            contador = listaRegistros.Max(x => x.id);
+        }
+
+        protected void CarregarRegistrosDoArquivo()
         {
             BinaryFormatter serializador = new BinaryFormatter();
 
-            byte[] registrosEmBytes = File.ReadAllBytes(caminho);
+            byte[] registroEmBytes = File.ReadAllBytes(NOME_ARQUIVO);
 
-            MemoryStream registroStream = new MemoryStream(registrosEmBytes);
+            MemoryStream registroStream = new MemoryStream(registroEmBytes);
 
             listaRegistros = (List<TEntidade>)serializador.Deserialize(registroStream);
 
             AtualizarContador();
         }
 
-        public void AtualizarContador()
-        {
-            contadorRegistros = listaRegistros.Max(x => x.id);
-        }
-
-        public void GravarTarefasEmArquivo(string caminho)
+        protected void GravarRegistrosEmArquivo()
         {
             BinaryFormatter serializador = new BinaryFormatter();
 
@@ -37,11 +78,7 @@ namespace e_Agenda.WinApp.Compartilhado
 
             byte[] registrosEmBytes = registroStream.ToArray();
 
-            File.WriteAllBytes(caminho, registrosEmBytes);
+            File.WriteAllBytes(NOME_ARQUIVO, registrosEmBytes);
         }
-
-
-
-
     }
 }

@@ -192,7 +192,7 @@
                         break;
 
                     default:
-                        tarefas = repositorioTarefa.SelecionarPorPrioridade();
+                        tarefas = repositorioTarefa.SelecionarOrdenadoPorPrioridade();
                         break;
                 }
 
@@ -209,7 +209,7 @@
 
         private void CarregarTarefas()
         {
-            List<Tarefa> tarefas = repositorioTarefa.SelecionarPorPrioridade();
+            List<Tarefa> tarefas = repositorioTarefa.SelecionarOrdenadoPorPrioridade();
 
             tabelaTarefas.AtualizarRegistros(tarefas);
 

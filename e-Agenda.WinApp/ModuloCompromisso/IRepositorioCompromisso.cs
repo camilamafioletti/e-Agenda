@@ -1,15 +1,9 @@
 ﻿namespace e_Agenda.WinApp.ModuloCompromisso
 {
-    public interface IRepositorioCompromisso
+    public interface IRepositorioCompromisso : IRepositorioBase<Compromisso>
     {
-        void Inserir(Compromisso novoCompromisso);
-        void Editar(int id, Compromisso compromisso);
-        void Excluir(Compromisso compromissoSelecionado);
+        public List<Compromisso> SelecionarCompromissosPassados(DateTime hoje);
 
-        Compromisso SelecionarPorId(int id);
-        List<Compromisso> SelecionarTodos();
-
-        public List<Compromisso> SelecionarCompromissosPassado();
-        public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicial, DateTime dataFinal);
+        public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal);
     }
 }

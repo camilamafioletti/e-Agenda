@@ -1,8 +1,8 @@
-using e_Agenda.WinApp.Compartilhado;
 using e_Agenda.WinApp.ModuloCategoria;
 using e_Agenda.WinApp.ModuloCompromisso;
 using e_Agenda.WinApp.ModuloContato;
 using e_Agenda.WinApp.ModuloDespesa;
+using e_Agenda.WinApp.ModuloDespesas;
 using e_Agenda.WinApp.ModuloTarefa;
 
 namespace e_Agenda.WinApp
@@ -17,12 +17,6 @@ namespace e_Agenda.WinApp
         private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoEmArquivo();
         private IRepositorioContato repositorioContato = new RepositorioContatoEmArquivo();
 
-
-        //private RepositorioContato repositorioContato = new RepositorioContato(new List<Contato>());
-        //private RepositorioTarefa repositorioTarefa = new RepositorioTarefa(new List<Tarefa>());
-        //private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
-        //private RepositorioDespesa repositorioDespesa = new RepositorioDespesa(new List<Despesa>());
-        //private RepositorioCategoria repositorioCategoria = new RepositorioCategoria(new List<Categoria>());
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -159,11 +153,6 @@ namespace e_Agenda.WinApp
             controlador.Filtrar();
         }
 
-        private void btnSubtarefas_Click(object sender, EventArgs e)
-        {
-            controlador.ConcluirItens();
-        }
-
         private void btnAdicionarSubtarefas_Click(object sender, EventArgs e)
         {
             controlador.Adicionar();
@@ -172,6 +161,11 @@ namespace e_Agenda.WinApp
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             controlador.VisualizarCategorias();
+        }
+
+        private void btnChecharTarefas_Click(object sender, EventArgs e)
+        {
+            controlador.ConcluirItens();
         }
     }
 }

@@ -2,79 +2,25 @@
 {
     public class RepositorioCompromissoEmArquivo : RepositorioArquivoBase<Compromisso>, IRepositorioCompromisso
     {
-
-        private const string NOME_ARQUIVO_COMPROMISSO = "compromisso.bin";
-
         public RepositorioCompromissoEmArquivo()
         {
-            if (File.Exists(NOME_ARQUIVO_COMPROMISSO))
-                CarregarRegistrosDoArquivo(NOME_ARQUIVO_COMPROMISSO);
+            NOME_ARQUIVO = "D:\\Arquivos\\Programas\\e-Agenda-2023-master\\e-Agenda-2023-master\\Arquivos\\compromisso.bin";
+
+            if (File.Exists(NOME_ARQUIVO))
+                CarregarRegistrosDoArquivo();
         }
 
-        public void Editar(int id, Compromisso compromisso)
+        public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal)
         {
-            Compromisso compromissoSelecionado = SelecionarPorId(id);
-
-            compromissoSelecionado.AtualizarInformacoes(compromisso);
-
-            GravarTarefasEmArquivo(NOME_ARQUIVO_COMPROMISSO);
+            return listaRegistros
+                .Where(x => x.data > dataInicio)
+                .Where(x => x.data < dataFinal)
+                .ToList();
         }
 
-        public void Excluir(Compromisso compromissoSelecionado)
+        public List<Compromisso> SelecionarCompromissosPassados(DateTime hoje)
         {
-            listaRegistros.Remove(compromissoSelecionado);
-
-            GravarTarefasEmArquivo(NOME_ARQUIVO_COMPROMISSO);
-        }
-
-        public void Inserir(Compromisso novoCompromisso)
-        {
-            contadorRegistros++;
-            novoCompromisso.id = contadorRegistros;
-            listaRegistros.Add(novoCompromisso);
-
-            GravarTarefasEmArquivo(NOME_ARQUIVO_COMPROMISSO);
-        }
-
-        public Compromisso SelecionarPorId(int id)
-        {
-
-            Compromisso compromisso = listaRegistros.FirstOrDefault(x => x.id == id);
-
-            return compromisso;
-        }
-
-        public List<Compromisso> SelecionarTodos()
-        {
-            return listaRegistros;
-        }
-
-        public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicial, DateTime dataFinal)
-        {
-            List<Compromisso> compromissosFuturos = new List<Compromisso>();
-
-            foreach (Compromisso item in listaRegistros)
-            {
-                if (item.data > dataInicial && item.data < dataFinal)
-                {
-                    compromissosFuturos.Add(item);
-                }
-            }
-            return compromissosFuturos;
-        }
-
-        public List<Compromisso> SelecionarCompromissosPassado()
-        {
-            List<Compromisso> compromissosFuturos = new List<Compromisso>();
-
-            foreach (Compromisso item in listaRegistros)
-            {
-                if (item.data < DateTime.Now.Date)
-                {
-                    compromissosFuturos.Add(item);
-                }
-            }
-            return compromissosFuturos;
+            return listaRegistros.Where(x => x.data.Date < hoje.Date).ToList();
         }
     }
 }

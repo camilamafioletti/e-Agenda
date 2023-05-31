@@ -1,48 +1,55 @@
-﻿namespace e_Agenda.WinApp.ModuloContato
+﻿using e_Agenda.WinApp.ModuloCategoria;
+using e_Agenda.WinApp.ModuloDespesa;
+using e_Agenda.WinApp.ModuloTarefa;
+
+namespace e_Agenda.WinApp.ModuloContato
 {
     public partial class TelaContatoForm : Form
     {
         private Contato contato;
 
-        public TelaContatoForm()
+        public TelaContatoForm(List<Contato> contatos)
         {
             InitializeComponent();
+
+            this.ConfigurarDialog();
+
         }
 
-        public Contato Contato
+        public Contato ObterContato()
         {
-            set
-            {
-                txtId.Text = value.id.ToString();
-                txtNome.Text = value.nome;
-                txtTelefone.Text = value.telefone;
-                txtEmail.Text = value.email;
-                txtCargo.Text = value.cargo;
-                txtEmpresa.Text = value.empresa;
-            }
-            get
-            {
-                return contato;
-            }
+            int id = Convert.ToInt32(txtId.Text);
+            string nome = txtNome.Text;
+            string telefone = txtTelefone.Text;
+            string email = txtEmail.Text;
+            string cargo = txtCargo.Text;
+            string empresa = txtEmpresa.Text;
+
+            contato = new Contato(nome, telefone, email, cargo, empresa);
+            contato.id = id;
+
+            return contato;
+        }
+
+        public void ConfigurarTela(Contato contatoSelecionada)
+        {
+            txtId.Text = contatoSelecionada.id.ToString();
+            txtNome.Text = contatoSelecionada.nome;
+            txtTelefone.Text = contatoSelecionada.telefone;
+            txtEmail.Text = contatoSelecionada.email;
+            txtCargo.Text = contatoSelecionada.cargo;
+            txtEmpresa.Text = contatoSelecionada.empresa;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string nome = txtNome.Text;
+            Contato contato = ObterContato();
 
-            string telefone = txtTelefone.Text;
+            AtualizarErros(contato);
+        }
 
-            string email = txtEmail.Text;
-
-            string cargo = txtCargo.Text;
-
-            string empresa = txtEmpresa.Text;
-
-            contato = new Contato(nome, telefone, email, cargo, empresa);
-
-            if (txtId.Text != "0")
-                contato.id = Convert.ToInt32(txtId.Text);
-
+        private void AtualizarErros(Contato contato)
+        {
             string[] erros = contato.Validar();
 
             if (erros.Length > 0)

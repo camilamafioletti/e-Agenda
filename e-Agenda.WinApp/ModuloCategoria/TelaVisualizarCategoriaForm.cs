@@ -26,7 +26,7 @@ namespace e_Agenda.WinApp.ModuloCategoria
 
         public void CarregarLabel(Categoria categoria)
         {
-            lblCategoria.Text = categoria.titulo.ToString();   
+            lblCategoria.Text = categoria.titulo.ToString();
         }
     }
 }

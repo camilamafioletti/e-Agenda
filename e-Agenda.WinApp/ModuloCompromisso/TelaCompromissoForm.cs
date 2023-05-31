@@ -31,7 +31,7 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             bool presencial = rdbPresencial.Checked;
 
             Compromisso compromisso = new Compromisso(contato, titulo, localizacao, data, dataInicio, dataTermino, remoto, presencial);
-            compromisso.id = id;    
+            compromisso.id = id;
 
             return compromisso;
         }
@@ -53,6 +53,11 @@ namespace e_Agenda.WinApp.ModuloCompromisso
         {
             Compromisso compromisso = ObterCompromisso();
 
+            AtualizarErros(compromisso);
+        }
+
+        private void AtualizarErros(Compromisso compromisso)
+        {
             string[] erros = compromisso.Validar();
 
             if (erros.Length > 0)

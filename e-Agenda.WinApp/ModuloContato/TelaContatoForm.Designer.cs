@@ -31,7 +31,6 @@
             btnGravar = new Button();
             btnCancelar = new Button();
             label1 = new Label();
-            txtId = new TextBox();
             label2 = new Label();
             txtNome = new TextBox();
             txtCargo = new TextBox();
@@ -42,30 +41,33 @@
             label5 = new Label();
             label6 = new Label();
             txtTelefone = new MaskedTextBox();
+            txtId = new Label();
             SuspendLayout();
             // 
             // btnGravar
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.BackColor = Color.LightPink;
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Location = new Point(300, 145);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 0;
             btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             btnGravar.Click += btnGravar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.LightPink;
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Location = new Point(381, 145);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -75,15 +77,6 @@
             label1.Size = new Size(17, 15);
             label1.TabIndex = 2;
             label1.Text = "Id";
-            // 
-            // txtId
-            // 
-            txtId.Location = new Point(64, 15);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(26, 23);
-            txtId.TabIndex = 3;
-            txtId.Text = "0";
             // 
             // label2
             // 
@@ -105,7 +98,7 @@
             // 
             txtCargo.Location = new Point(64, 103);
             txtCargo.Name = "txtCargo";
-            txtCargo.Size = new Size(84, 23);
+            txtCargo.Size = new Size(129, 23);
             txtCargo.TabIndex = 7;
             // 
             // txtEmail
@@ -160,17 +153,28 @@
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(65, 74);
+            txtTelefone.Location = new Point(64, 74);
             txtTelefone.Mask = "(99) 0000-0000";
             txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(83, 23);
+            txtTelefone.Size = new Size(128, 23);
             txtTelefone.TabIndex = 14;
+            // 
+            // txtId
+            // 
+            txtId.AutoSize = true;
+            txtId.Location = new Point(64, 19);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(13, 15);
+            txtId.TabIndex = 15;
+            txtId.Text = "0";
             // 
             // TelaContatoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LavenderBlush;
             ClientSize = new Size(468, 198);
+            Controls.Add(txtId);
             Controls.Add(txtTelefone);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -181,7 +185,6 @@
             Controls.Add(txtCargo);
             Controls.Add(txtNome);
             Controls.Add(label2);
-            Controls.Add(txtId);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
@@ -201,7 +204,6 @@
         private Button btnGravar;
         private Button btnCancelar;
         private Label label1;
-        private TextBox txtId;
         private Label label2;
         private TextBox txtNome;
         private TextBox txtCargo;
@@ -212,5 +214,6 @@
         private Label label5;
         private Label label6;
         private MaskedTextBox txtTelefone;
+        private Label txtId;
     }
 }

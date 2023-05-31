@@ -110,14 +110,14 @@
             // despesasMenuItem
             // 
             despesasMenuItem.Name = "despesasMenuItem";
-            despesasMenuItem.Size = new Size(180, 22);
+            despesasMenuItem.Size = new Size(130, 22);
             despesasMenuItem.Text = "Despesas";
             despesasMenuItem.Click += despesasMenuItem_Click;
             // 
             // categoriasMenuItem
             // 
             categoriasMenuItem.Name = "categoriasMenuItem";
-            categoriasMenuItem.Size = new Size(180, 22);
+            categoriasMenuItem.Size = new Size(130, 22);
             categoriasMenuItem.Text = "Categorias";
             categoriasMenuItem.Click += categoriasMenuItem_Click;
             // 
@@ -222,6 +222,7 @@
             btnChecharTarefas.Name = "btnChecharTarefas";
             btnChecharTarefas.Padding = new Padding(7);
             btnChecharTarefas.Size = new Size(42, 42);
+            btnChecharTarefas.Click += btnChecharTarefas_Click;
             // 
             // toolStripSeparator1
             // 

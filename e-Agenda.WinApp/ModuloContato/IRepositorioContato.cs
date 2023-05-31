@@ -1,13 +1,7 @@
 ﻿namespace e_Agenda.WinApp.ModuloContato
 {
-    public interface IRepositorioContato
+    public interface IRepositorioContato : IRepositorioBase<Contato>
     {
-        void Inserir(Contato novoContato);
-        void Editar(int id, Contato contato);
-        void Excluir(Contato contataSelecionado);
-
-        Contato SelecionarPorId(int id);
-        List<Contato> SelecionarTodos();
 
     }
 }

@@ -30,11 +30,11 @@
         {
             txtTitulo = new TextBox();
             label2 = new Label();
-            txtId = new TextBox();
             label1 = new Label();
             btnCancelar = new Button();
             btnGravar = new Button();
             listItensTarefa = new CheckedListBox();
+            txtId = new Label();
             SuspendLayout();
             // 
             // txtTitulo
@@ -54,15 +54,6 @@
             label2.TabIndex = 12;
             label2.Text = "Título:";
             // 
-            // txtId
-            // 
-            txtId.Location = new Point(77, 19);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(26, 23);
-            txtId.TabIndex = 11;
-            txtId.Text = "0";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -75,44 +66,57 @@
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.LightPink;
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Location = new Point(228, 268);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 15;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnGravar
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.BackColor = Color.LightPink;
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Location = new Point(147, 268);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 14;
             btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             // 
             // listItensTarefa
             // 
+            listItensTarefa.BackColor = Color.LightPink;
             listItensTarefa.FormattingEnabled = true;
             listItensTarefa.Location = new Point(31, 94);
             listItensTarefa.Name = "listItensTarefa";
             listItensTarefa.Size = new Size(272, 166);
             listItensTarefa.TabIndex = 17;
             // 
+            // txtId
+            // 
+            txtId.AutoSize = true;
+            txtId.Location = new Point(77, 23);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(13, 15);
+            txtId.TabIndex = 18;
+            txtId.Text = "0";
+            // 
             // TelaAtualizacaoItensTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LavenderBlush;
             ClientSize = new Size(315, 321);
+            Controls.Add(txtId);
             Controls.Add(listItensTarefa);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(txtTitulo);
             Controls.Add(label2);
-            Controls.Add(txtId);
             Controls.Add(label1);
             Name = "TelaAtualizacaoItensTarefaForm";
             Text = "Atualização de Itens da Tarefa";
@@ -124,10 +128,10 @@
 
         private TextBox txtTitulo;
         private Label label2;
-        private TextBox txtId;
         private Label label1;
         private Button btnCancelar;
         private Button btnGravar;
         private CheckedListBox listItensTarefa;
+        private Label txtId;
     }
 }

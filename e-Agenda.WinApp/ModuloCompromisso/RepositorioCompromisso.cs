@@ -1,40 +1,23 @@
 ﻿namespace e_Agenda.WinApp.ModuloCompromisso
 {
-    public class RepositorioCompromisso : RepositorioBase<Compromisso>, IRepositorioCompromisso
+    public class RepositorioCompromissoEmMemoria : RepositorioBase<Compromisso>, IRepositorioCompromisso
     {
-        List<Compromisso> compromissos = new List<Compromisso>();
-
-        public RepositorioCompromisso()
+        public RepositorioCompromissoEmMemoria(List<Compromisso> compromissos)
         {
             this.listaRegistros = compromissos;
         }
 
-        public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicial, DateTime dataFinal)
+        public List<Compromisso> SelecionarCompromissosPassados(DateTime hoje)
         {
-            List<Compromisso> compromissosFuturos = new List<Compromisso>();
-
-            foreach (Compromisso item in compromissos)
-            {
-                if (item.data > dataInicial && item.data < dataFinal)
-                {
-                    compromissosFuturos.Add(item);
-                }
-            }
-            return compromissosFuturos;
+            return listaRegistros.Where(x => x.data.Date < hoje.Date).ToList();
         }
 
-        public List<Compromisso> SelecionarCompromissosPassado()
+        public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal)
         {
-            List<Compromisso> compromissosFuturos = new List<Compromisso>();
-
-            foreach (Compromisso item in compromissos)
-            {
-                if (item.data < DateTime.Now.Date)
-                {
-                    compromissosFuturos.Add(item);
-                }
-            }
-            return compromissosFuturos;
+            return listaRegistros
+                .Where(x => x.data > dataInicio)
+                .Where(x => x.data < dataFinal)
+                .ToList();
         }
     }
 }
