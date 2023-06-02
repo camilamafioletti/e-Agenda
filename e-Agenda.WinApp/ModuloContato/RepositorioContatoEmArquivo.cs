@@ -2,12 +2,14 @@
 {
     public class RepositorioContatoEmArquivo : RepositorioArquivoBase<Contato>, IRepositorioContato
     {
-        public RepositorioContatoEmArquivo()
+        public RepositorioContatoEmArquivo(ContextoDados contexto) : base(contexto)
         {
-            NOME_ARQUIVO = "D:\\Arquivos\\Programas\\e-Agenda-2023-master\\e-Agenda-2023-master\\Arquivos\\contato.bin";
 
-            if (File.Exists(NOME_ARQUIVO))
-                CarregarRegistrosDoArquivo();
+        }
+
+        protected override List<Contato> ObterRegistros()
+        {
+            return contextoDados.contatos;
         }
     }
 }

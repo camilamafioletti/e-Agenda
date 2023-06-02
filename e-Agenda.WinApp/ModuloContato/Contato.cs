@@ -20,6 +20,10 @@ namespace e_Agenda.WinApp.ModuloContato
             this.empresa = empresa;
         }
 
+        public Contato()
+        {
+        }
+
         public override void AtualizarInformacoes(Contato registroAtualizado)
         {
             this.nome = registroAtualizado.nome;

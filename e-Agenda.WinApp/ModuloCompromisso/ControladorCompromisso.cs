@@ -26,7 +26,8 @@ namespace e_Agenda.WinApp.ModuloCompromisso
         #endregion
         public override void Inserir()
         {
-            TelaCompromissoForm telaCompromisso = new TelaCompromissoForm(repositorioContato);
+            List<Contato> contatos = repositorioContato.SelecionarTodos();
+            TelaCompromissoForm telaCompromisso = new TelaCompromissoForm(contatos);
 
             DialogResult opcaoEscolhida = telaCompromisso.ShowDialog();
 
@@ -54,7 +55,9 @@ namespace e_Agenda.WinApp.ModuloCompromisso
                 return;
             }
 
-            TelaCompromissoForm telaCompromisso = new TelaCompromissoForm((RepositorioContato)repositorioContato);
+            List<Contato> contatos = repositorioContato.SelecionarTodos();
+            TelaCompromissoForm telaCompromisso = new TelaCompromissoForm(contatos);
+
             telaCompromisso.ConfigurarTela(compromissoSelecionado);
 
             DialogResult opcaoEscolhida = telaCompromisso.ShowDialog();

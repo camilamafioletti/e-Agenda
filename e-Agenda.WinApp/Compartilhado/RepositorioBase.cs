@@ -40,5 +40,4 @@
             return listaRegistros.OrderByDescending(x => x.id).ToList();
         }
     }
-
 }

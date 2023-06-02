@@ -26,6 +26,10 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             this.presencial = presencial;
         }
 
+        public Compromisso()
+        {
+        }
+
         public override void AtualizarInformacoes(Compromisso registroAtualizado)
         {
             this.titulo = registroAtualizado.titulo;

@@ -5,16 +5,21 @@ namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public partial class TelaCompromissoForm : Form
     {
-        private Compromisso compromisso;
-
-        private IRepositorioContato repositorioContato;
-
-
-        public TelaCompromissoForm(IRepositorioContato repositorioContato)
+        public TelaCompromissoForm(List<Contato> contatos)
         {
             InitializeComponent();
-            this.repositorioContato = repositorioContato;
 
+            this.ConfigurarDialog();
+
+            CarregarContatos(contatos);
+        }
+
+        private void CarregarContatos(List<Contato> contatos)
+        {
+            foreach (Contato contato in contatos)
+            {
+                comboBoxContato.Items.Add(contato);
+            }
         }
 
         public Compromisso ObterCompromisso()
@@ -74,15 +79,6 @@ namespace e_Agenda.WinApp.ModuloCompromisso
             {
                 comboBoxContato.Enabled = true;
             }
-
-            ListarContatos();
-        }
-
-        private void ListarContatos()
-        {
-            comboBoxContato.Items.Clear();
-
-            comboBoxContato.Items.AddRange(repositorioContato.SelecionarTodos().ToArray());
         }
 
     }

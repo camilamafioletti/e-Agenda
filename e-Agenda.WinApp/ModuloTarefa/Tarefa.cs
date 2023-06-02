@@ -21,6 +21,10 @@ namespace e_Agenda.WinApp.ModuloTarefa
             this.items = new List<ItemTarefa>();
         }
 
+        public Tarefa()
+        {
+        }
+
         public override void AtualizarInformacoes(Tarefa registroAtualizado)
         {
             this.id = registroAtualizado.id;
@@ -37,6 +41,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
             return erros.ToArray();
         }
+
         public void AdicionarItem(ItemTarefa item)
         {
             items.Add(item);

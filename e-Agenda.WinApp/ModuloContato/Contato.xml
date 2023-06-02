@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfContato xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Contato>
+		<id>1</id>
+		<nome>Camila</nome>
+		<telefone>(49) 1222-4582</telefone>
+		<email>camila@gmail.com</email>
+		<cargo>Estudante</cargo>
+		<empresa>Academia do Prog</empresa>
+	</Contato>
+</ArrayOfContato>

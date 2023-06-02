@@ -2,35 +2,35 @@
 {
     public class RepositorioTarefaEmArquivo : RepositorioArquivoBase<Tarefa>, IRepositorioTarefa
     {
-        public RepositorioTarefaEmArquivo()
+        public RepositorioTarefaEmArquivo(ContextoDados contexto) : base(contexto)
         {
-            NOME_ARQUIVO = "D:\\Arquivos\\Programas\\e-Agenda-2023-master\\e-Agenda-2023-master\\Arquivos\\tarefa.bin";
-
-            if (File.Exists(NOME_ARQUIVO))
-                CarregarRegistrosDoArquivo();
         }
 
         public List<Tarefa> SelecionarConcluidas()
         {
-            return listaRegistros
+            return ObterRegistros()
                     .Where(x => x.percentual == 100)
                     .ToList();
         }
 
         public List<Tarefa> SelecionarPendentes()
         {
-            return listaRegistros
+            return ObterRegistros()
                     .Where(x => x.percentual < 100)
                     .ToList();
         }
 
         public List<Tarefa> SelecionarOrdenadoPorPrioridade()
         {
-            return listaRegistros
+            return ObterRegistros()
                     .OrderByDescending(x => x.prioridade)
                     .ToList();
         }
 
+        protected override List<Tarefa> ObterRegistros()
+        {
+            return contextoDados.tarefas;
+        }
     }
 }
 

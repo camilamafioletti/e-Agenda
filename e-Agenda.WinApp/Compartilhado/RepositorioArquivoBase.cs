@@ -1,84 +1,64 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
-
-namespace e_Agenda.WinApp.Compartilhado
+﻿namespace e_Agenda.WinApp.Compartilhado
 {
-    public class RepositorioArquivoBase<TEntidade>
-        where TEntidade : EntidadeBase<TEntidade>
+    public abstract class RepositorioArquivoBase<T> where T : EntidadeBase<T>
     {
+        protected ContextoDados contextoDados;
+        private int contador;
 
-        private static int contador;
-
-        protected List<TEntidade> listaRegistros = new List<TEntidade>();
-
-        protected string NOME_ARQUIVO = "";
-
-        public virtual void Inserir(TEntidade novoRegistro)
+        public RepositorioArquivoBase(ContextoDados contexto)
         {
-            contador++;
-            novoRegistro.id = contador;
-            listaRegistros.Add(novoRegistro);
-
-            GravarRegistrosEmArquivo();
-        }
-
-        public virtual void Editar(int id, TEntidade registroAtualizado)
-        {
-            EntidadeBase<TEntidade> registroSelecionada = SelecionarPorId(id);
-
-            registroSelecionada.AtualizarInformacoes(registroAtualizado);
-
-            GravarRegistrosEmArquivo();
-        }
-
-        public virtual void Excluir(TEntidade registroSelecionado)
-        {
-            listaRegistros.Remove(registroSelecionado);
-
-            GravarRegistrosEmArquivo();
-        }
-
-        public virtual TEntidade SelecionarPorId(int id)
-        {
-            if (listaRegistros.Exists(registro => registro.id == id))
-                return listaRegistros.FirstOrDefault(registro => registro.id == id);
-
-            return null;
-        }
-
-        public virtual List<TEntidade> SelecionarTodos()
-        {
-            return listaRegistros.OrderByDescending(x => x.id).ToList();
-        }
-
-        private void AtualizarContador()
-        {
-            contador = listaRegistros.Max(x => x.id);
-        }
-
-        protected void CarregarRegistrosDoArquivo()
-        {
-            BinaryFormatter serializador = new BinaryFormatter();
-
-            byte[] registroEmBytes = File.ReadAllBytes(NOME_ARQUIVO);
-
-            MemoryStream registroStream = new MemoryStream(registroEmBytes);
-
-            listaRegistros = (List<TEntidade>)serializador.Deserialize(registroStream);
+            contextoDados = contexto;
 
             AtualizarContador();
         }
 
-        protected void GravarRegistrosEmArquivo()
+        protected abstract List<T> ObterRegistros();
+
+        public void Inserir(T novoRegistro)
         {
-            BinaryFormatter serializador = new BinaryFormatter();
+            List<T> registros = ObterRegistros();
 
-            MemoryStream registroStream = new MemoryStream();
+            contador++;
+            novoRegistro.id = contador;
+            registros.Add(novoRegistro);
 
-            serializador.Serialize(registroStream, listaRegistros);
+            contextoDados.GravarEmArquivoJson();
+        }
 
-            byte[] registrosEmBytes = registroStream.ToArray();
+        public void Editar(int id, T registroAtualizado)
+        {
+            T registroSelecionado = SelecionarPorId(id);
 
-            File.WriteAllBytes(NOME_ARQUIVO, registrosEmBytes);
+            registroSelecionado.AtualizarInformacoes(registroAtualizado);
+
+            contextoDados.GravarEmArquivoJson();
+        }
+
+        public void Excluir(T registroSelecionado)
+        {
+            List<T> registros = ObterRegistros();
+
+            registros.Remove(registroSelecionado);
+
+            contextoDados.GravarEmArquivoJson();
+        }
+
+        public T SelecionarPorId(int id)
+        {
+            List<T> registros = ObterRegistros();
+
+            return registros.FirstOrDefault(x => x.id == id);
+        }
+
+        public List<T> SelecionarTodos()
+        {
+            return ObterRegistros();
+        }
+
+        private void AtualizarContador()
+        {
+            if (ObterRegistros().Count > 0)
+                contador = ObterRegistros().Max(x => x.id);
         }
     }
 }

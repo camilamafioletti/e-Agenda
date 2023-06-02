@@ -196,7 +196,7 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Name = "TelaDespesaForm";
-            Text = "TelaDespesaForm";
+            Text = "Tela de Despesa";
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

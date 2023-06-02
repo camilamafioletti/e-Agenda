@@ -10,6 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ModuloCategoria\Categoria.xml" />
+    <None Remove="ModuloCompromisso\Compromissos.xml" />
+    <None Remove="ModuloDespesa\Despesa.xml" />
+    <None Remove="ModuloTarefa\Tarefa,xml.txt" />
+    <None Remove="ModuloTarefa\Tarefa.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -22,6 +30,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ModuloContato\Contato.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
