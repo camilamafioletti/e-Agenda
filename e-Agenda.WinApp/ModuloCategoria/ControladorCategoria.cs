@@ -1,6 +1,7 @@
-﻿using e_Agenda.WinApp.ModuloContato;
+﻿using e_Agenda.Dominio.ModuloCategoria;
+using e_Agenda.Dominio.ModuloDespesa;
 using e_Agenda.WinApp.ModuloDespesa;
-using e_Agenda.WinApp.ModuloTarefa;
+
 
 namespace e_Agenda.WinApp.ModuloCategoria
 {

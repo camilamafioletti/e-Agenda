@@ -1,5 +1,5 @@
-﻿using e_Agenda.WinApp.ModuloContato;
-using e_Agenda.WinApp.ModuloDespesa;
+﻿using e_Agenda.Dominio.ModuloCompromisso;
+using e_Agenda.WinApp.ModuloContato;
 
 namespace e_Agenda.WinApp.ModuloCompromisso
 {

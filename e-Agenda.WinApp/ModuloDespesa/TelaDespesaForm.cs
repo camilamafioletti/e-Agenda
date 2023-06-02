@@ -1,9 +1,7 @@
-﻿using e_Agenda.WinApp.ModuloCategoria;
-using e_Agenda.WinApp.ModuloCompromisso;
-using e_Agenda.WinApp.ModuloContato;
+﻿using e_Agenda.Dominio.ModuloCategoria;
+using e_Agenda.Dominio.ModuloDespesa;
+using e_Agenda.Infra.Dados.Memoria.ModuloCategoria;
 using e_Agenda.WinApp.ModuloDespesa;
-using e_Agenda.WinApp.ModuloTarefa;
-using System.Xml.Linq;
 
 namespace e_Agenda.WinApp.ModuloDespesas
 {

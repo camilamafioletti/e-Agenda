@@ -1,8 +1,4 @@
-﻿using e_Agenda.WinApp.ModuloCategoria;
-using e_Agenda.WinApp.ModuloDespesa;
-using e_Agenda.WinApp.ModuloTarefa;
-
-namespace e_Agenda.WinApp.ModuloContato
+﻿namespace e_Agenda.WinApp.ModuloContato
 {
     public partial class TelaContatoForm : Form
     {

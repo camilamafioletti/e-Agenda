@@ -1,4 +1,5 @@
-﻿using e_Agenda.WinApp.ModuloDespesa;
+﻿using e_Agenda.Dominio.ModuloTarefa;
+using e_Agenda.WinApp.ModuloDespesa;
 
 namespace e_Agenda.WinApp.ModuloTarefa
 {
