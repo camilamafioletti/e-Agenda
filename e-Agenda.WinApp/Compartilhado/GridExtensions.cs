@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.Properties
+﻿namespace e_Agenda.WinApp.Compartilhado
 {
     public static class GridExtensions
     {

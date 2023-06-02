@@ -1,6 +1,4 @@
-﻿using e_Agenda.WinApp.Properties;
-
-namespace e_Agenda.WinApp.ModuloCompromisso
+﻿namespace e_Agenda.WinApp.ModuloCompromisso
 {
     public partial class TabelaCompromissoControl : UserControl
     {

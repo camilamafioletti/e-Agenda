@@ -1,5 +1,4 @@
 ﻿using e_Agenda.WinApp.ModuloContato;
-using e_Agenda.WinApp.Properties;
 
 namespace e_Agenda.WinApp.ModuloDespesa
 {

@@ -1,7 +1,6 @@
 ﻿using e_Agenda.WinApp.ModuloCategoria;
-using e_Agenda.WinApp.ModuloDespesa;
 
-namespace e_Agenda.WinApp.ModuloDespesas
+namespace e_Agenda.WinApp.ModuloDespesa
 {
     public class RepositorioDespesaEmArquivo : RepositorioArquivoBase<Despesa>, IRepositorioDespesa
     {
